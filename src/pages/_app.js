@@ -1,8 +1,8 @@
 import "../styles/global.css"
 
-export default function PageBuilder({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout || ((page) => page)
+  const buildLayout = Component.getLayout || ((page) => page)
 
-  return getLayout(<Component {...pageProps} />)
+  return buildLayout(<Component {...pageProps} />)
 }

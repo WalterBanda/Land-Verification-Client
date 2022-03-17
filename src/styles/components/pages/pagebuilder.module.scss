@@ -1,0 +1,50 @@
+@mixin layout($device_type) {
+  @if ($device_type == "mobile") {
+    flex-flow: column-reverse nowrap;
+  }
+}
+
+@mixin horizontalCenter {
+  display: flex;
+  align-items: center;
+}
+
+.root {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  nav {
+    @include horizontalCenter();
+    background-color: aqua;
+    flex: 0 0 10%;
+  }
+  main {
+    display: flex;
+    flex: 1 0 80%;
+  }
+  aside {
+    @include horizontalCenter();
+    justify-content: center;
+    background-color: bisque;
+    width: 20%;
+  }
+  section {
+    background-color: blue;
+    width: 80%;
+  }
+
+  @media screen and (max-width: 425px) {
+    main {
+      flex-flow: column-reverse nowrap;
+    }
+
+    aside {
+      width: 100%;
+      flex: 0 0 15%;
+    }
+    section {
+      width: 100%;
+      flex: 1 0 80%;
+    }
+  }
+}
