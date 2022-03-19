@@ -10,7 +10,7 @@ export default function PageBuilder({ title, children }) {
         <title>{title}</title>
       </Head>
       <nav>
-        <Header />
+        <Header title={title} />
       </nav>
       <main>
         <aside>

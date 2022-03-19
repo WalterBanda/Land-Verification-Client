@@ -1,6 +1,6 @@
 import PageBuilder from "../components";
 export default function Index() {
-  return <>Index</>;
+  return <div>Index ✅ Page</div>;
 }
 
 Index.getLayout = function buildLayout(page) {
