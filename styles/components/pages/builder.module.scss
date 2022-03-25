@@ -1,0 +1,45 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  nav {
+    height: 10%;
+  }
+  main {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+
+    aside {
+      width: 20%;
+      max-height: 1024px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+    section {
+      width: 80%;
+      display: flex;
+      overflow-y: scroll;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .root {
+    main {
+      flex-flow: column-reverse nowrap;
+      aside {
+        width: 100%;
+        height: 10%;
+      }
+      section {
+        width: 100%;
+        height: 90%;
+      }
+    }
+  }
+}
