@@ -65,6 +65,21 @@
 .verifier-settings:before { content: '\e809'; } /* '' */
 .verifier-down_arrow:before { content: '\e80b'; } /* '' */
 
-.verifier-transactions::before {
-  font-size: 20px;
+@media screen and (max-width: 425px) {
+  .verifier-transactions::before {
+    font-size: 23.5px;
+  }
+  .verifier-settings:before {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .verifier-transactions::before {
+    font-size: 18.5px;
+    padding: 2px;
+  }
+  .verifier-settings:before {
+    font-size: 21px;
+  }
 }

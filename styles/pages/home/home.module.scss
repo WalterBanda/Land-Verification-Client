@@ -1,38 +1,9 @@
 .root {
-  display: flex;
-  flex-flow: column nowrap;
-  color: #1b2559;
+  min-width: 100%;
 }
 
-.container {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.stats {
-  .header {
-    margin: 1rem 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    p {
-      margin: 0;
-      padding-right: 0.4rem;
-      font-style: normal;
-      font-size: 1rem;
-    }
-
-    i {
-      font-size: 0.5rem;
-    }
-  }
-
-  .stat {
-    background: #1ad5fd;
-    border-radius: 1rem;
-    width: 163.33px;
-    height: 75px;
-    margin: 0px 6px;
+@media screen and (max-width: 425px) {
+  .root {
+    min-width: 85%;
   }
 }

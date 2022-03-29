@@ -1,13 +1,10 @@
 .root {
   height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
   nav {
     height: 10%;
   }
   main {
-    height: 85%;
+    height: 90%;
     width: 100%;
     display: flex;
     overflow: hidden;
@@ -23,23 +20,49 @@
     section {
       width: 80%;
       display: flex;
-      overflow-y: scroll;
+      justify-content: center;
+      overflow-y: auto;
     }
   }
 }
 
 @media screen and (max-width: 425px) {
   .root {
+    width: auto;
+    height: auto;
+
+    nav {
+      height: 10vh;
+    }
     main {
-      flex-flow: column-reverse nowrap;
+      height: 90vh;
       aside {
         width: 100%;
-        height: 10%;
+        height: 10vh;
+        position: fixed;
+        bottom: 0;
       }
       section {
+        height: 100%;
         width: 100%;
-        height: 90%;
       }
     }
   }
 }
+
+// .root {
+//   background-color: green;
+//   nav {
+//     background-color: aqua;
+//   }
+//   main {
+//     background-color: blue;
+
+//     aside {
+//       background-color: brown;
+//     }
+//     section {
+//       background-color: chocolate;
+//     }
+//   }
+// }
