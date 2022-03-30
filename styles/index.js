@@ -3,8 +3,8 @@ import header from "./components/pages/header.module.scss";
 import sidebar from "./components/pages/sidebar.module.scss";
 import error from "./components/utils/error.module.scss";
 import home from "./pages/home/home.module.scss"
-import transaction_stats from "./pages/home/components/transactions.module.scss"
+import home_components from "./pages/home/components/index.module.scss"
 import stats from "./pages/home/components/stats.module.scss"
 
-export { builder, header, sidebar,error,home,transaction_stats,stats };
+export { builder, header, sidebar,error,home,home_components,stats };
  

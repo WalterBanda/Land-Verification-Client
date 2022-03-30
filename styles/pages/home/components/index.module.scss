@@ -1,0 +1,11 @@
+@use "../../../theme.scss";
+
+.root {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.header {
+    @include theme.text-style-section-header;
+    color: var(--text-subheader);
+}

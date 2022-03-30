@@ -15,7 +15,7 @@ export function PageBuilder({ title, children }) {
       <main>
         <aside>
           <Sidebar />
-        </aside>
+        </aside> 
         <section>{children}</section>
       </main>
     </div>

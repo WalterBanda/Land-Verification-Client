@@ -1,4 +1,4 @@
-import { transaction_stats } from "../../../styles";
+import { home_components } from "../../../styles";
 import { Stat } from "./components";
 
 function TransactionStats() {
@@ -8,12 +8,9 @@ function TransactionStats() {
   }
 
   return (
-    <div className={transaction_stats.root}>
-      <div className={transaction_stats.header}>
-        <p>Land Transactions Stats</p>
-        <i className="verifier-down_arrow" />
-      </div>
-      <div className={transaction_stats.stats}>
+    <div className={home_components.root}>
+      <p className={home_components.header}>Land Transactions Stats</p>
+      <div className={home_components.stats}>
         <Stat key={"stat"} name={"stat"} data={"stat"} />
       </div>
     </div>
@@ -23,21 +20,21 @@ function TransactionStats() {
 function PopularLand() {
   return (
     <div>
-      <p>Popular Land </p>
+      <p className={home_components.header}>Popular Land </p>
     </div>
   );
 }
 function AccountDetails() {
   return (
     <div>
-      <p>Account Details</p>
+      <p className={home_components.header}>Account Details</p>
     </div>
   );
 }
 function RecentTransaction() {
   return (
     <div>
-      <p>Recent Transactions</p>
+      <p className={home_components.header}>Recent Transactions</p>
     </div>
   );
 }

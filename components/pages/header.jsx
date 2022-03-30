@@ -1,6 +1,6 @@
 import Image from "next/image";
 import profile from "../../public/assets/img/profile.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { header } from "../../styles";
 
 export default function Header({ title, children }) {
@@ -27,11 +27,21 @@ export default function Header({ title, children }) {
   );
 }
 
+const useThemeDetector = () => {
+  return [isDarkTheme, mqListener];
+};
+
 function Theme_Switcher() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const getCurrentTheme = () =>
+    typeof window == "window"
+      ? window.matchMedia("(prefers-color-scheme: dark)").matches
+      : false;
+  const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
+
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
   return (
     <div className={header.theme_switcher} onClick={changeTheme}>
       {isDarkTheme ? (
