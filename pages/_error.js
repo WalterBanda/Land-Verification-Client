@@ -1,11 +1,11 @@
-import { ErrorCode, PageBuilder } from "../components";
+import { PageBuilder } from "../components";
+import { ErrorCode } from "../core";
 
 function ErrorPage({ statusCode }) {
-  return (
-    <PageBuilder>
-      <ErrorCode status={statusCode} />
-    </PageBuilder>
-  );
+  // TODO Implement Auth based Routing
+  return <PageBuilder>
+    <ErrorCode status={statusCode} />
+  </PageBuilder>;
 }
 
 ErrorPage.getInitialProps = ({ res, err }) => {

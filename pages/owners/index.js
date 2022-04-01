@@ -6,7 +6,7 @@ import {
   RecentTransaction,
 } from "../../components";
 
-export default function Home() {
+export default function Index() {
   return (
     <div className={home.root}>
       <AccountDetails />
@@ -14,6 +14,6 @@ export default function Home() {
     </div>
   );
 }
-Home.getLayout = function getLayout(page) {
+Index.getLayout = function getLayout(page) {
   return <PageBuilder title="Land Owners">{page}</PageBuilder>;
 };

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { error } from "../../styles";
-export function ErrorCode({ status, message }) {
+
+function ErrorCode({ status, message }) {
   const router = useRouter();
 
   return (
@@ -19,3 +20,5 @@ export function ErrorCode({ status, message }) {
     </div>
   );
 }
+
+export { ErrorCode };

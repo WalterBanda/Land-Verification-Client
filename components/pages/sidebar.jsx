@@ -23,7 +23,7 @@ export default function Sidebar({ children }) {
 function SidebarItem({ itemName, itemIcon, pageLink }) {
   const router = useRouter();
   const active = {
-    color: router.asPath === pageLink ? "var(--text-active)" : "",
+    color: router.pathname.startsWith(pageLink) ? "var(--text-active)" : "",
   };
   return (
     <Link href={pageLink} passHref>
