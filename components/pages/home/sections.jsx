@@ -1,11 +1,11 @@
-import { home_components } from "../../../styles";
+import { sections } from "../../../styles";
 import { Card, Stat } from "../../widgets/components";
 
 function TransactionStats() {
   return (
-    <div className={home_components.root}>
-      <p className={home_components.header}>Land Transactions Stats</p>
-      <div className={home_components.stats}>
+    <div className={sections.root}>
+      <p className={sections.header}>Land Transactions Stats</p>
+      <div className={sections.stats}>
         <Stat name={"Daily Stats"} data={10} />
         <Stat name={"Land Sold"} data={10} />
         <Stat name={"Amount transacted"} data={10} />
@@ -33,9 +33,9 @@ function TransactionStats() {
 // }
 function AccountDetails() {
   return (
-    <div className={home_components.root}>
-      <p className={home_components.header}>Account Details</p>
-      <div className={home_components.stats}>
+    <div className={sections.root}>
+      <p className={sections.header}>Account Details</p>
+      <div className={sections.stats}>
         <Stat name={"Land Owned"} data={10} />
         <Stat name={"Land Sold"} data={10} />
         <Stat name={"Amount transacted"} data={10} />
@@ -47,8 +47,8 @@ function AccountDetails() {
 function RecentTransaction({title,data}) {
   return (
     <div>
-      <p className={home_components.header}> {title ?? "Recent Transactions"} </p>
-      <div className={home_components.transactions}>
+      <p className={sections.header}> {title ?? "Recent Transactions"} </p>
+      <div className={sections.transactions}>
         <Card description={"Transactions Descriptions"}/>
         <Card description={"Transactions Descriptions"}/>
         <Card description={"Transactions Descriptions"}/>

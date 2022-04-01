@@ -1,11 +1,4 @@
-@import "theme.scss";
-
-$color-primary: rgba(0, 0, 0, 1);
-$color-brand-emphasis: rgba(0, 144, 255, 1);
-$color-header: rgba(27, 37, 89, 1);
-$color-graph-empty: rgba(217, 221, 232, 1);
-$color-secondary: rgba(255, 255, 255, 1);
-$color-bg-dark: rgb(17, 24, 39);
+@import "styles/colors.scss";
 
 html,
 body {
@@ -37,42 +30,6 @@ a {
   transition: color ease-in 10ms;
 }
 
-html[theme="light"] {
-  --text-header: rgb(0, 0, 0);
-  --text-subheader: rgb(51, 70, 167);
-  --text-active: $color-brand-emphasis;
-
-  --bg: #ffffff;
-  --card-bg: var(--bg);
-}
-html[theme="dark"] {
-  --text-header: rgb(255, 255, 255);
-  --text-subheader: rgb(0, 144, 255);
-  --text-active: $color-brand-emphasis;
-
-  --bg: rgb(17, 24, 39);
-  --card-bg: rgb(31, 41, 55);
-}
-
-:root {
-  @media (prefers-color-scheme: dark) {
-    --text-header: rgb(255, 255, 255);
-    --text-subheader: rgb(0, 144, 255);
-    --text-active: $color-brand-emphasis;
-
-    --bg: rgb(17, 24, 39);
-    --card-bg: rgb(31, 41, 55);
-  }
-  @media (prefers-color-scheme: light) {
-    --text-header: rgb(0, 0, 0);
-    --text-subheader: rgb(51, 70, 167);
-    --text-active: $color-brand-emphasis;
-
-    --bg: #ffffff;
-    --card-bg: var(--bg);
-  }
-}
-
 body {
   display: flex;
   flex-flow: row nowrap;
@@ -88,5 +45,5 @@ body > :nth-child(1) {
   max-width: 1280px;
 }
 
-@import "./components/icons/animation.css";
-@import "./components/icons/verifier.css";
+@import "./icons/animation.css";
+@import "./icons/verifier.css";

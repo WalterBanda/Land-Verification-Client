@@ -1,10 +1,17 @@
-import builder from "./components/pages/builder.module.scss";
-import header from "./components/pages/header.module.scss";
-import sidebar from "./components/pages/sidebar.module.scss";
-import error from "./components/utils/error.module.scss";
-import home from "./pages/home/home.module.scss"
-import home_components from "./pages/home/components/index.module.scss"
-import components from "./pages/home/components/components.module.scss"
+// Core
+import builder from "./core/builder.module.scss";
+import header from "./core/header.module.scss";
+import sidebar from "./core/sidebar.module.scss";
 
-export { builder, header, sidebar,error,home,home_components,components };
+// Utils
+import error from "./utils/error.module.scss";
+
+// Pages
+import home from "./pages/home.module.scss"
+
+// Components
+import components from "./components/components.module.scss"
+import sections from "./components/sections.module.scss"
+
+export { builder, header, sidebar,error,home,sections,components };
  

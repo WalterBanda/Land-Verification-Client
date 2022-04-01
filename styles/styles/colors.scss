@@ -1,0 +1,38 @@
+$color-primary: rgba(0, 0, 0, 1);
+$color-brand-emphasis: rgba(0, 144, 255, 1);
+$color-header: rgba(27, 37, 89, 1);
+$color-secondary: rgba(255, 255, 255, 1);
+$color-bg-dark: rgb(17, 24, 39);
+
+@mixin light-theme {
+  --text-header: rgb(0, 0, 0);
+  --text-subheader: rgb(51, 70, 167);
+  --text-active: rgba(0, 144, 255, 1);
+
+  --bg: #ffffff;
+  --card-bg: var(--bg);
+}
+@mixin dark-theme {
+  --text-header: rgb(255, 255, 255);
+  --text-subheader: rgb(0, 144, 255);
+  --text-active: rgba(0, 144, 255, 1);
+
+  --bg: rgb(17, 24, 39);
+  --card-bg: rgb(31, 41, 55);
+}
+
+html[theme="light"] {
+  @include light-theme();
+}
+html[theme="dark"] {
+  @include dark-theme();
+}
+
+:root {
+  @media (prefers-color-scheme: light) {
+    @include light-theme();
+  }
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme();
+  }
+}
