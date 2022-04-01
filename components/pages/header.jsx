@@ -42,10 +42,10 @@ const useThemeDetector = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   // const theme = isDarkTheme ? "dark" : "light";
-  //   // document.querySelector("html").setAttribute("theme", theme);
-  // }, [isDarkTheme]);
+  useEffect(() => {
+    const theme = isDarkTheme ? "dark" : "light";
+    document.querySelector("html").setAttribute("theme", theme);
+  }, [isDarkTheme]);
 
   const mqListener = () => {
     setIsDarkTheme(!isDarkTheme);
