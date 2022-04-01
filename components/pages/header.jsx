@@ -28,26 +28,40 @@ export default function Header({ title, children }) {
 }
 
 const useThemeDetector = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const theme = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkTheme(theme.matches);
+    theme.addEventListener("change", (e) => {
+      if (e.matches) {
+        setIsDarkTheme(true);
+      } else {
+        setIsDarkTheme(false);
+      }
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   // const theme = isDarkTheme ? "dark" : "light";
+  //   // document.querySelector("html").setAttribute("theme", theme);
+  // }, [isDarkTheme]);
+
+  const mqListener = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
   return [isDarkTheme, mqListener];
 };
 
 function Theme_Switcher() {
-  const getCurrentTheme = () =>
-    typeof window == "window"
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches
-      : false;
-  const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
-
-  const changeTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
+  const [isDarkTheme, changeTheme] = useThemeDetector();
 
   return (
     <div className={header.theme_switcher} onClick={changeTheme}>
       {isDarkTheme ? (
-        <i className="verifier-dark" />
-      ) : (
         <i className="verifier-light" />
+      ) : (
+        <i className="verifier-dark" />
       )}
     </div>
   );

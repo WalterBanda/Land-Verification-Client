@@ -11,8 +11,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Sf Pro Rounded", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Sf Pro Rounded", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
 }
 
 a {
@@ -22,25 +23,53 @@ a {
 
 * {
   box-sizing: border-box;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  transition: background-color ease-in 10ms;
+  transition: color ease-in 10ms;
 }
 
+html[theme="light"] {
+  --text-header: rgb(0, 0, 0);
+  --text-subheader: rgb(51, 70, 167);
+  --text-active: $color-brand-emphasis;
 
-@media (prefers-color-scheme: light) {
-  :root {
+  --bg: #ffffff;
+  --card-bg: var(--bg);
+}
+html[theme="dark"] {
+  --text-header: rgb(255, 255, 255);
+  --text-subheader: rgb(0, 144, 255);
+  --text-active: $color-brand-emphasis;
+
+  --bg: rgb(17, 24, 39);
+  --card-bg: rgb(31, 41, 55);
+}
+
+:root {
+  @media (prefers-color-scheme: dark) {
+    --text-header: rgb(255, 255, 255);
+    --text-subheader: rgb(0, 144, 255);
+    --text-active: $color-brand-emphasis;
+
+    --bg: rgb(17, 24, 39);
+    --card-bg: rgb(31, 41, 55);
+  }
+  @media (prefers-color-scheme: light) {
     --text-header: rgb(0, 0, 0);
     --text-subheader: rgb(51, 70, 167);
     --text-active: $color-brand-emphasis;
 
-    background-color: "#ffffff";
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-header: white;
-    --text-subheader: rgb(0, 144, 255);
-    --text-active: $color-brand-emphasis;
-
-    background-color: $color-bg-dark;
+    --bg: #ffffff;
+    --card-bg: var(--bg);
   }
 }
 
@@ -49,6 +78,8 @@ body {
   flex-flow: row nowrap;
   justify-content: center;
   width: 100vw;
+
+  background-color: var(--bg);
 }
 
 body > :nth-child(1) {

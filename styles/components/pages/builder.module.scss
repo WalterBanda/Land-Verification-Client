@@ -1,6 +1,8 @@
 .root {
   height: 100%;
   background-color: inherit;
+
+  overflow: hidden;
   nav {
     height: 10%;
   }
@@ -17,12 +19,23 @@
       flex-flow: column nowrap;
       justify-content: center;
       align-items: center;
+
+      background: var(--bg);
     }
     section {
       width: 80%;
       display: flex;
       justify-content: center;
       overflow-y: auto;
+      overflow-x: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 426px){
+  .root {
+    section {
+      width: 76% !important;
     }
   }
 }
@@ -50,20 +63,3 @@
     }
   }
 }
-
-// .root {
-//   background-color: green;
-//   nav {
-//     background-color: aqua;
-//   }
-//   main {
-//     background-color: blue;
-
-//     aside {
-//       background-color: brown;
-//     }
-//     section {
-//       background-color: chocolate;
-//     }
-//   }
-// }
