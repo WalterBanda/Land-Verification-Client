@@ -1,5 +1,5 @@
-import { sections } from "../../../styles";
-import { Card, Stat } from "../../widgets/components";
+import { sections } from "../../styles";
+import { Card, Stat } from "../widgets/components";
 
 function TransactionStats() {
   return (
@@ -14,23 +14,23 @@ function TransactionStats() {
   );
 }
 
-// function PopularLand() {
-//   let stats = [];
-//   for (let index = 0; index < 20; index++) {
-//     stats.push(index);
-//   }
+function PopularLand() {
+  let stats = [];
+  for (let index = 0; index < 20; index++) {
+    stats.push(index);
+  }
 
-//   return (
-//     <div>
-//       <p className={home_components.header}>Popular Land </p>
-//       <div className={home_components.stats}>
-//         {stats.map((e) => (
-//           <Card key={e} background={"https://images.unsplash.com/photo-1648668874032-862744573bb1"} alt={e} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <p className={home_components.header}>Popular Land </p>
+      <div className={home_components.stats}>
+        {stats.map((e) => (
+          <Card key={e} background={"https://images.unsplash.com/photo-1648668874032-862744573bb1"} alt={e} />
+        ))}
+      </div>
+    </div>
+  );
+}
 function AccountDetails() {
   return (
     <div className={sections.root}>
@@ -61,4 +61,4 @@ function RecentTransaction({title,data}) {
   );
 }
 
-export { TransactionStats, RecentTransaction, AccountDetails };
+export { TransactionStats, RecentTransaction,PopularLand, AccountDetails };

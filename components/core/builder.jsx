@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { builder } from "../../styles";
-import Header from "./Header";
+import { builder,auth } from "../../styles";
+import Header from "./header";
 import Sidebar from "./sidebar";
 
 export function PageBuilder({ title, children }) {
@@ -20,4 +20,22 @@ export function PageBuilder({ title, children }) {
       </main>
     </div>
   );
+}
+
+export function AuthPage({title,children}) {
+  return <div className={auth.root}>
+  <Head>
+    <title>{title}</title>
+  </Head>
+
+  <div className={auth.page}>
+      <div className={auth.logo}>
+      </div>
+
+      <div className={auth.pageContent}>
+          {children}
+      </div>
+
+  </div>
+</div>
 }
