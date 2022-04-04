@@ -57,13 +57,18 @@
 }
 
 .verifier-transactions:before { content: '\e800'; } /* '' */
+.verifier-email:before { content: '\e801'; } /* '' */
+.verifier-user:before { content: '\e802'; } /* '' */
 .verifier-history:before { content: '\e803'; } /* '' */
 .verifier-home:before { content: '\e805'; } /* '' */
 .verifier-info:before { content: '\e806'; } /* '' */
 .verifier-dark:before { content: '\e807'; } /* '' */
 .verifier-light:before { content: '\e808'; } /* '' */
 .verifier-settings:before { content: '\e809'; } /* '' */
+.verifier-search:before { content: '\e80a'; } /* '' */
 .verifier-down_arrow:before { content: '\e80b'; } /* '' */
+.verifier-github:before { content: '\f09b'; } /* '' */
+.verifier-google:before { content: '\f1a0'; } /* '' */ 
 
 @media screen and (max-width: 425px) {
   .verifier-transactions::before {

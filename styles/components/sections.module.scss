@@ -40,3 +40,50 @@
 
   cursor: pointer;
 }
+
+.authlets {
+  width: 100%;
+  margin-top: 1rem;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
+  .email {
+      padding: 0.5rem 1rem 0.5rem 0.6rem;
+    i {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.authlet {
+  all: unset;
+  padding: 0.5rem;
+  border-radius: 1rem;
+
+  background-color: black;
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: rgb(255, 255, 255) !important;
+    font-size: 2.25rem;
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+
+  @media screen and (min-width: 769px) {
+    &:hover {
+      border: 0.125rem solid rgb(66, 133, 244);
+    }
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+}
