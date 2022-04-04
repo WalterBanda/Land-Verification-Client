@@ -1,12 +1,57 @@
 .root {
     width: 100%;
     height: 100%;
+
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    color: var(--text-header);
 }
 
 .page {
+
+    min-width: 60%;
+    min-height: 60%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     
+    .logo {
+        width: 40%;
+        max-width: 10rem;
+    }
+
+    .page_content {
+        width: 100%;
+        height: 80%;
+    }
+
+    .theming {
+        min-height: 10%;
+    }
+
 }
+
+
+// .root {
+//     background-color: aqua;
+// }
+
+// .page {
+//     background-color: blue;
+// }
+
+// .logo {
+//     background-color: cadetblue;
+// }
+
+// .page_content {
+//     background-color: burlywood;
+// }
+
+// .theming {
+//     background-color: blueviolet;
+// }

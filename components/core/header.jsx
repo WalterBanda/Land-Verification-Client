@@ -53,7 +53,7 @@ const useThemeDetector = () => {
   return [isDarkTheme, mqListener];
 };
 
-function Theme_Switcher() {
+export function Theme_Switcher() {
   const [isDarkTheme, changeTheme] = useThemeDetector();
 
   return (

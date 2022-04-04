@@ -13,5 +13,6 @@ import auth from "./pages/auth.module.scss";
 // Components
 import components from "./components/components.module.scss";
 import sections from "./components/sections.module.scss";
+import input from "./components/input.module.scss"
 
-export { builder, header, sidebar, error, home, auth, sections, components };
+export { builder, header, sidebar, error, home, auth, sections, components,input };

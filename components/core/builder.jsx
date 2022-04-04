@@ -1,6 +1,8 @@
 import Head from "next/head";
-import { builder,auth } from "../../styles";
-import Header from "./header";
+import Image from "next/image";
+import { builder, auth } from "../../styles";
+import logo from "../../public/assets/res/logo.svg"
+import Header, { Theme_Switcher } from "./header";
 import Sidebar from "./sidebar";
 
 export function PageBuilder({ title, children }) {
@@ -15,27 +17,35 @@ export function PageBuilder({ title, children }) {
       <main>
         <aside>
           <Sidebar />
-        </aside> 
+        </aside>
         <section>{children}</section>
       </main>
     </div>
   );
 }
 
-export function AuthPage({title,children}) {
-  return <div className={auth.root}>
-  <Head>
-    <title>{title}</title>
-  </Head>
+export function AuthPage({ title, children }) {
+  return (
+    <div className={auth.root}>
+      <Head>
+        <title>{title}</title>
+      </Head>
 
-  <div className={auth.page}>
-      <div className={auth.logo}>
+      <div className={auth.page}>
+
+        <div className={auth.logo}>
+          <Image
+          src={logo}
+          alt="App Logo"
+        />
+        </div>
+
+        <div className={auth.page_content}>{children}</div>
+
+        <div className={auth.theming}>
+          <Theme_Switcher />
+        </div>
       </div>
-
-      <div className={auth.pageContent}>
-          {children}
-      </div>
-
-  </div>
-</div>
+    </div>
+  );
 }
