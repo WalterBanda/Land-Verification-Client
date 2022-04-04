@@ -1,57 +1,67 @@
+@use "../styles/theme.scss";
+
 .root {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 
-    color: var(--text-header);
+  color: var(--text-header);
 }
 
 .page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 
-    min-width: 60%;
-    min-height: 60%;
+  .logo {
+    min-width: 40%;
+    max-width: 10rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page_content {
+    width: 100%;
+  }
+
+  .theming {
+    margin-top: 1.5rem;
+    width: 100%;
 
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
     align-items: center;
-    
-    .logo {
-        width: 40%;
-        max-width: 10rem;
-    }
 
-    .page_content {
-        width: 100%;
-        height: 80%;
-    }
+    border-top: 0.1rem solid var(--text-header);
+    padding-top: 1rem;
 
-    .theming {
-        min-height: 10%;
-    }
-
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }
 
+@media screen and (max-width: 425px) {
+  .page {
+    width: 80%;
+  }
+}
 
-// .root {
-//     background-color: aqua;
-// }
+.onboarding {
+  display: flex;
+  flex-flow: column nowrap;
 
-// .page {
-//     background-color: blue;
-// }
+  & > div,
+  button {
+    margin-bottom: 1.2rem;
+  }
 
-// .logo {
-//     background-color: cadetblue;
-// }
-
-// .page_content {
-//     background-color: burlywood;
-// }
-
-// .theming {
-//     background-color: blueviolet;
-// }
+  & > p {
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}

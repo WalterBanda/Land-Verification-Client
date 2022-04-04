@@ -12,10 +12,8 @@ export function Stat({ name, data }) {
   );
 }
 
-export function Card({description}) {
-  return <div className={components.card}>
-    <p>{description}</p>
-  </div>
+export function Card({ className,children }) {
+  return <div className={`${className} ${components.card}`}>{children}</div>;
 }
 
 function Graph({ data }) {

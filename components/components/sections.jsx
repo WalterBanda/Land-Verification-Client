@@ -25,7 +25,13 @@ function PopularLand() {
       <p className={home_components.header}>Popular Land </p>
       <div className={home_components.stats}>
         {stats.map((e) => (
-          <Card key={e} background={"https://images.unsplash.com/photo-1648668874032-862744573bb1"} alt={e} />
+          <Card
+            key={e}
+            background={
+              "https://images.unsplash.com/photo-1648668874032-862744573bb1"
+            }
+            alt={e}
+          />
         ))}
       </div>
     </div>
@@ -44,21 +50,27 @@ function AccountDetails() {
     </div>
   );
 }
-function RecentTransaction({title,data}) {
+function RecentTransaction({ title, data }) {
   return (
     <div>
       <p className={sections.header}> {title ?? "Recent Transactions"} </p>
       <div className={sections.transactions}>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
-        <Card description={"Transactions Descriptions"}/>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
+        <Card>Transactions Descriptions</Card>
       </div>
     </div>
   );
 }
 
-export { TransactionStats, RecentTransaction,PopularLand, AccountDetails };
+export { TransactionStats, RecentTransaction, PopularLand, AccountDetails };

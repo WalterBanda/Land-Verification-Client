@@ -1,13 +1,14 @@
 import { AuthPage, Button, Input } from "../../components";
-export default function Auth() {
+import { auth } from "../../styles";
+export default function Index() {
   return (
-    <>
-      <Input hint="Email address" icon="verifier-info" />
-      <Button>Auth Button</Button>
-    </>
+    <div className={auth.onboarding}>
+      <p>Login to your Account</p>
+      
+    </div>
   );
 }
 
-Auth.getLayout = function getLayout(page) {
+Index.getLayout = function getLayout(page) {
   return <AuthPage title="Onboarding 🔐">{page}</AuthPage>;
 };

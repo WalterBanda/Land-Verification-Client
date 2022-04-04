@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { builder, auth } from "../../styles";
-import logo from "../../public/assets/res/logo.svg"
+import logo from "../../public/assets/res/logo.svg";
 import Header, { Theme_Switcher } from "./header";
+import { Card as div } from "../widgets/components";
 import Sidebar from "./sidebar";
 
 export function PageBuilder({ title, children }) {
@@ -31,21 +32,18 @@ export function AuthPage({ title, children }) {
         <title>{title}</title>
       </Head>
 
-      <div className={auth.page}>
+        <div className={auth.page}>
+          <div className={auth.logo}>
+            <Image src={logo} alt="App Logo" />
+          </div>
 
-        <div className={auth.logo}>
-          <Image
-          src={logo}
-          alt="App Logo"
-        />
-        </div>
+          <div className={auth.page_content}>{children}</div>
 
-        <div className={auth.page_content}>{children}</div>
-
-        <div className={auth.theming}>
-          <Theme_Switcher />
+          <div className={auth.theming}>
+            <p>Change Your Theme : </p>
+            <Theme_Switcher />
+          </div>
         </div>
       </div>
-    </div>
   );
 }

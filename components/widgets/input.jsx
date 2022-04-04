@@ -13,7 +13,6 @@ export function Input({ icon, icon_leading, hint, input_type, className }) {
     }
     `}
     >
-      {console.log(icon_leading)}
       {icon !== null ? <i className={`icon ${icon}`} /> : <></>}
       <input type={input_type} placeholder={hint ?? ""} />
     </div>
