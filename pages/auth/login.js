@@ -3,7 +3,7 @@ import { auth } from "../../styles";
 
 export default function Login() {
   return (
-    <div className={auth.onboarding}>
+    <div className={auth.login}>
       <p>Login </p>
       <Input hint="Email address" icon="verifier-info" input_type="email" />
       <Input hint="Password" icon="verifier-info" input_type="password" />

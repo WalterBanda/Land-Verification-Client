@@ -40,7 +40,6 @@ export function AuthPage({ title, children }) {
           <div className={auth.page_content}>{children}</div>
 
           <div className={auth.theming}>
-            <p>Change Your Theme : </p>
             <Theme_Switcher />
           </div>
         </div>

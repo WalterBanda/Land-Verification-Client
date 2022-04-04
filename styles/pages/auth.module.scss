@@ -28,19 +28,9 @@
   }
 
   .theming {
-    margin-top: 1.5rem;
-    width: 100%;
-
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-
-    border-top: 0.1rem solid var(--text-header);
-    padding-top: 1rem;
-
-    font-size: 1.2rem;
-    font-weight: bold;
+    position: fixed;
+    top: 4%;
+    right: 2%;
   }
 }
 
@@ -51,6 +41,38 @@
 }
 
 .onboarding {
+  display: flex;
+  flex-flow: column nowrap;
+
+  & > div,
+  button {
+    margin-bottom: 1.2rem;
+  }
+
+  & > p {
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+
+.login {
+  display: flex;
+  flex-flow: column nowrap;
+
+  & > div,
+  button {
+    margin-bottom: 1.2rem;
+  }
+
+  & > p {
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+}
+
+.register {
   display: flex;
   flex-flow: column nowrap;
 

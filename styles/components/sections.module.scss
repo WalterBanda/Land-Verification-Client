@@ -1,25 +1,42 @@
 @use "../styles/theme.scss";
 
 .root {
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .header {
-    @include theme.text-style-section-header;
-    color: var(--text-subheader);
+  @include theme.text-style-section-header;
+  color: var(--text-subheader);
 }
 
 .stats {
-    display: flex;
-    flex-flow: row nowrap;
-    overflow-y: auto;
-    padding: 0.4rem 0.4rem 0.4rem 0.1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-y: auto;
+  padding: 0.4rem 0.4rem 0.4rem 0.1rem;
 }
 
 .transactions {
-    display: flex;
-    flex-flow: column nowrap;
-    padding-left: 0.2rem;
-    padding-right: 0.4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 0.2rem;
+  padding-right: 0.4rem;
+}
+
+.register_user {
+  all: unset;
+  font-weight: 700;
+  font-size: 0.9rem !important;
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-bottom: 0 !important;
+
+  border-top: 0.1rem solid var(--text-header);
+
+  span {
+    color: var(--text-active);
+  }
+
+  cursor: pointer;
 }

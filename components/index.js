@@ -7,6 +7,9 @@ export { Input } from "./widgets/input";
 export { Card } from "./widgets/components";
 export { Button } from "./widgets/buttons";
 
+// Page Components
+export * from "./pages/auth";
+
 export {
   TransactionStats,
   RecentTransaction,

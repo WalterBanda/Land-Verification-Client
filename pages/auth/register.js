@@ -3,7 +3,7 @@ import { auth } from "../../styles";
 
 export default function Register() {
   return (
-    <div className={auth.onboarding}>
+    <div className={auth.register}>
       <p>Create a new User</p>
       <Input hint="Email address" icon="verifier-info" input_type="email" />
       <Input hint="Password" icon="verifier-info" input_type="password" />
