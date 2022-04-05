@@ -7,3 +7,11 @@ export function Button({ onClick, className, children }) {
     </button>
   );
 }
+
+export function Authlet({ icon, callback, className }) {
+  return (
+    <button className={`${className} ${components.authlet}`} onClick={callback}>
+      <i className={icon ?? "verifier-info"} />
+    </button>
+  );
+}

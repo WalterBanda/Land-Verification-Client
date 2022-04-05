@@ -1,5 +1,6 @@
 import { sections } from "../../styles";
-import { Card, Stat } from "../widgets/components";
+import { Stat, Card, Authlet } from "../index";
+import { useRouter } from "next/router";
 
 function TransactionStats() {
   return (
@@ -22,8 +23,8 @@ function PopularLand() {
 
   return (
     <div>
-      <p className={home_components.header}>Popular Land </p>
-      <div className={home_components.stats}>
+      <p className={sections.header}>Popular Land </p>
+      <div className={sections.stats}>
         {stats.map((e) => (
           <Card
             key={e}
@@ -73,4 +74,28 @@ function RecentTransaction({ title, data }) {
   );
 }
 
-export { TransactionStats, RecentTransaction, PopularLand, AccountDetails };
+function Authlets() {
+  const router = useRouter();
+
+  const login_nav = () => router.push("/auth/login");
+
+  return (
+    <div className={sections.authlets}>
+      <Authlet icon="verifier-google" />
+      <Authlet icon="verifier-github" />
+      <Authlet
+        icon="verifier-email"
+        className={sections.email}
+        callback={login_nav}
+      />
+    </div>
+  );
+}
+
+export {
+  TransactionStats,
+  RecentTransaction,
+  PopularLand,
+  AccountDetails,
+  Authlets,
+};

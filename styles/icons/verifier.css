@@ -56,35 +56,20 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.verifier-transactions:before { content: '\e800'; } /* '' */
-.verifier-email:before { content: '\e801'; } /* '' */
-.verifier-user:before { content: '\e802'; } /* '' */
-.verifier-history:before { content: '\e803'; } /* '' */
-.verifier-home:before { content: '\e805'; } /* '' */
-.verifier-info:before { content: '\e806'; } /* '' */
-.verifier-dark:before { content: '\e807'; } /* '' */
-.verifier-light:before { content: '\e808'; } /* '' */
-.verifier-settings:before { content: '\e809'; } /* '' */
-.verifier-search:before { content: '\e80a'; } /* '' */
-.verifier-down_arrow:before { content: '\e80b'; } /* '' */
-.verifier-github:before { content: '\f09b'; } /* '' */
-.verifier-google:before { content: '\f1a0'; } /* '' */ 
 
-@media screen and (max-width: 425px) {
-  .verifier-transactions::before {
-    font-size: 23.5px;
-  }
-  .verifier-settings:before {
-    font-size: 26px;
-  }
-}
-
-@media screen and (min-width: 426px) {
-  .verifier-transactions::before {
-    font-size: 18.5px;
-    padding: 2px;
-  }
-  .verifier-settings:before {
-    font-size: 21px;
-  }
-}
+.verifier-password:before { content: '\e803'; } /* '' */
+.verifier-search:before { content: '\e804'; } /* '' */
+.verifier-settings:before { content: '\e805'; } /* '' */
+.verifier-transactions:before { content: '\e806'; } /* '' */
+.verifier-user:before { content: '\e807'; } /* '' */
+.verifier-add:before { content: '\e808'; } /* '' */
+.verifier-caret_down:before { content: '\e80a'; } /* '' */
+.verifier-dark:before { content: '\e80c'; } /* '' */
+.verifier-email:before { content: '\e80d'; } /* '' */
+.verifier-history:before { content: '\e810'; } /* '' */
+.verifier-home:before { content: '\e811'; } /* '' */
+.verifier-info:before { content: '\e812'; } /* '' */
+.verifier-light:before { content: '\e814'; } /* '' */
+.verifier-search-filled:before { content: '\e815'; } /* '' */
+.verifier-google:before { content: '\e816'; } /* '' */
+.verifier-github:before { content: '\e817'; } /* '' */
