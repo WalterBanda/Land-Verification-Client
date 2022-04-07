@@ -1,0 +1,72 @@
+.email_input {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.1rem 1.5rem 1.1rem 1.875rem;
+  background: var(--input-bg);
+  border-radius: 1rem;
+  max-width: 40rem;
+  color: inherit;
+
+  input {
+    width: 100% !important;
+    all: unset;
+  }
+
+  i {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.leading {
+  input {
+    order: 1;
+  }
+
+  i {
+    order: 0;
+  }
+}
+
+.end {
+  input {
+    order: 0;
+  }
+
+  i {
+    order: 1;
+  }
+}
+
+$form-success: rgba(66, 133, 244, 1);
+$form-initial: rgb(117, 117, 117);
+$form-typing: lighten($form-initial, $amount: 40);
+
+$form-error: rgba(255, 26, 26, 1);
+
+html[theme="light"] {
+  .typing {
+    color: darken($form-initial, $amount: 20);
+  }
+}
+.auth {
+  color: $form-initial;
+  input::placeholder {
+    color: inherit;
+  }
+}
+
+.typing {
+  color: lighten($form-initial, $amount: 40);
+}
+
+.success {
+  color: lighten($form-success, $amount: 10);
+}
+
+.failed {
+  color: lighten($form-error, $amount: 10);
+}

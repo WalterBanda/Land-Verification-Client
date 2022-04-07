@@ -1,0 +1,65 @@
+.root {
+  height: 100%;
+  background-color: inherit;
+
+  overflow: hidden;
+  nav {
+    height: 10%;
+  }
+  main {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+
+    aside {
+      width: 20%;
+      max-height: 1024px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+
+      background: var(--bg);
+    }
+    section {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 426px){
+  .root {
+    section {
+      width: 76% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .root {
+    width: auto;
+    height: auto;
+
+    nav {
+      height: 10vh;
+    }
+    main {
+      height: 90vh;
+      aside {
+        width: 100%;
+        height: 10vh;
+        position: fixed;
+        bottom: 0;
+      }
+      section {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

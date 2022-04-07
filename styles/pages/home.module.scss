@@ -1,0 +1,10 @@
+.root {
+  width: 100%;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 425px) {
+  .root {
+    width: 90%;
+  }
+}
