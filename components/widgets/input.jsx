@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { input } from "../../styles";
 
 export function Input({
@@ -35,14 +36,21 @@ export function Input({
 }
 
 export function AuthInput({ type }) {
-  const validate_email = (event) => {};
-  const validate_password = (event) => {};
+  const [typing, setTyping] = useState(false);
+  const validate_email = (event) => {
+    setTyping(true);
+  };
+  const validate_password = (event) => {
+    setTyping(true);
+  };
 
   return (
     <Input
-      hint={type === "password" ? "password" : "Email address"}
-      icon="verifier-info"
-      input_type="email"
+      hint={type === "password" ? "Your Password" : "Email address"}
+      icon={type === "password" ? "verifier-password" : "verifier-email"}
+      input_type={type === "password" ? "password" : "email"}
+      onChange={type === "password" ? validate_password : validate_email}
+      className={input.auth}
     />
   );
 }

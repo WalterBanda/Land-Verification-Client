@@ -7,10 +7,10 @@ export default function Login() {
       <p>Login </p>
       <form>
         <label>Hello</label>
-        <AuthInput />
-        <AuthInput />
+        <AuthInput type="email" />
+        <AuthInput type="password" />
       </form>
-        <Button>Auth Button</Button>
+      <Button>Login</Button>
     </div>
   );
 }

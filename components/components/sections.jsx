@@ -83,11 +83,7 @@ function Authlets() {
     <div className={sections.authlets}>
       <Authlet icon="verifier-google" />
       <Authlet icon="verifier-github" />
-      <Authlet
-        icon="verifier-email"
-        className={sections.email}
-        callback={login_nav}
-      />
+      <Authlet icon="verifier-email" callback={login_nav} />
     </div>
   );
 }
