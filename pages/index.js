@@ -4,22 +4,11 @@ import { useAuth } from "../core";
 
 function Index() {
   const router = useRouter();
-  const { user } = useAuth();
-
-  if (typeof window !== "undefined") {
-    if (!user) {
-      router.replace("/auth");
-    }
-
-    if (user) {
-      router.replace("/home");
-    }
-  }
-  
+  const {user} = useAuth()
 
   return (
     <Builder>
-      <p>Redirecting... </p>
+      <p>Redirecting... {user !== null || undefined ? user.displayName : "No User"} </p>
     </Builder>
   );
 }

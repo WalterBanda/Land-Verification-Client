@@ -1,9 +1,10 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getApp } from "firebase/app";
+import {firebaseAuth} from "../config/firebase.config";
 
-class SignUpService {
+class SignUp {
   constructor(firebaseApp) {
-    this.auth = getAuth(firebaseApp);
+    this.auth = firebaseAuth;
   }
 
   createWithEmail(email, password) {
@@ -21,4 +22,4 @@ class SignUpService {
   }
 }
 
-export default new SignUpService(getApp());
+export default new SignUp(getApp());

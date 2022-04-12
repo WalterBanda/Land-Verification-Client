@@ -1,15 +1,11 @@
 import { useAuth } from "../hooks/auth";
 import { useRouter } from "next/router";
+import {requireAuthentication} from "./routes";
 
 export function Router({ children }) {
-  const { user } = useAuth();
-  const router = useRouter();
-
-  if (typeof window !== "undefined") {
-    if (!user) {
-      router.push("/auth");
-    }
-  }
-
   return children;
 }
+
+export const getServerSideProps = requireAuthentication( async (ctx) => ({
+  props: {}
+}))

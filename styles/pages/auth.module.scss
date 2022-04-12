@@ -34,6 +34,12 @@
   }
 }
 
+.btn {
+  text-align: center !important;
+  font-weight: bold !important;
+  font-size: 1.3rem !important;
+}
+
 @media screen and (max-width: 425px) {
   .page {
     width: 80%;
@@ -53,6 +59,30 @@
     font-weight: 700;
     font-size: 1.125rem;
     text-align: center;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 4%;
+  left: 2%;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  span {
+    font-size: 1.2rem;
+  }
+
+  i {
+    font-size: 1.5rem;
+
+    &::before {
+      transform: rotate(90deg);
+    }
   }
 }
 

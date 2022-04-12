@@ -6,10 +6,14 @@ import {
   AccountDetails,
   RecentTransaction,
 } from "../../components";
+import {firebaseAuth} from "../../core/config/firebase.config";
 
 export default function Index() {
+
+    const user = firebaseAuth.currentUser
   return (
     <div className={home.root}>
+        {user !== null || undefined ? user.displayName : "No User"}
       <TransactionStats />
       {/* <PopularLand /> */}
       <AccountDetails />
@@ -18,5 +22,5 @@ export default function Index() {
   );
 }
 Index.getLayout = function getLayout(page) {
-  return <PageBuilder title="Home">{page}</PageBuilder>;
+  return <PageBuilder title="Home ">{page}</PageBuilder>;
 };

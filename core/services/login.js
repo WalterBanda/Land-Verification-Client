@@ -2,15 +2,15 @@ import { getApp } from "firebase/app";
 import {
   signInWithPopup,
   signInWithEmailAndPassword,
-  getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
+import {firebaseAuth} from "../config/firebase.config";
 
-class LoginService {
-  constructor(firebaseApp) {
-    this.auth = getAuth(firebaseApp);
+class Login {
+  constructor() {
+    this.auth = firebaseAuth;
   }
 
   loginWithEmail(email, password) {
@@ -58,4 +58,4 @@ class LoginService {
   }
 }
 
-export default new LoginService(getApp());
+export default new Login(getApp());
