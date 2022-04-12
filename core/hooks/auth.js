@@ -19,8 +19,10 @@ export function AuthProvider(props) {
         setUser(user ?? null);
         setError(error ?? "");
         if (user !== null || undefined) {
+            console.log(user)
             await router.replace("/home")
         }
+        console.log(error)
     };
 
     const loginWithGithub = async () => {
