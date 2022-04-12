@@ -1,5 +1,5 @@
 // Core Components
-export { PageBuilder, AuthPage } from "./core/builder";
+export { PageBuilder, AuthPage,Builder } from "./core/builder";
 export { Theme_Switcher } from "./core/header";
 
 // UI Components

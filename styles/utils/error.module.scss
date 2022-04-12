@@ -15,7 +15,7 @@
     align-items: center;
     h1 {
       display: inline-block;
-      border-right: 1px solid rgba(0, 0, 0, 0.3);
+      border-right: 1px solid var(--text-header);
       padding: 1.5rem;
       margin-right: 1.2rem;
       font-size: 4rem;
@@ -29,7 +29,9 @@
     h3 {
         font-size: 1rem;
       font-weight: 400;
-      color: #0090FF;
+      //color: #0090FF;
+      color: var(--text-active);
+      cursor: pointer;
     }
   }
 }

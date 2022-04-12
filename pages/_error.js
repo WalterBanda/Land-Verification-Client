@@ -1,11 +1,22 @@
 import { PageBuilder } from "../components";
-import { ErrorCode } from "../core";
+import { ErrorCode, useAuth } from "../core";
+import { Builder } from "../components/core/builder";
 
 function ErrorPage({ statusCode }) {
-  // TODO Implement Auth based Routing
-  return <PageBuilder>
-    <ErrorCode status={statusCode} />
-  </PageBuilder>;
+  const { user } = useAuth();
+
+  if (!user) {
+    return (
+      <Builder title="🌋 Error occured">
+        <ErrorCode status={statusCode} />
+      </Builder>
+    );
+  }
+  return (
+    <PageBuilder title="🌋 Error occured">
+      <ErrorCode status={statusCode} />
+    </PageBuilder>
+  );
 }
 
 ErrorPage.getInitialProps = ({ res, err }) => {
