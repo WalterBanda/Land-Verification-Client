@@ -1,15 +1,17 @@
-import {AuthPage, RegisterUser, Authlets} from "../../components";
-import {auth} from "../../styles";
-import {useAuth} from "../../core";
+import {AuthPage, RegisterUser, Authlet} from "../../components";
+import {auth, sections} from "../../styles";
+import {useRouter} from "next/router";
 
 export default function Index() {
-    const {user} = useAuth();
-
-    const username = user !== null || undefined ? user.displayName : "Not Signed";
+    const router = useRouter();
     return (
         <div className={auth.onboarding}>
-            <p>Login to your Account {username}</p>
-            <Authlets/>
+            <p>Login to your Account </p>
+            <div className={sections.authlets}>
+                <Authlet icon="verifier-google"/>
+                <Authlet icon="verifier-github"/>
+                <Authlet icon="verifier-email" callback={()=>router.push("/auth/login")} />
+            </div>
             <RegisterUser/>
         </div>
     );

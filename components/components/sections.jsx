@@ -1,7 +1,5 @@
 import { sections } from "../../styles";
-import { Stat, Card, Authlet } from "../index";
-import { useRouter } from "next/router";
-import { useAuth } from "../../core";
+import { Stat, Card} from "../index";
 
 function TransactionStats() {
   return (
@@ -75,25 +73,9 @@ function RecentTransaction({ title, data }) {
   );
 }
 
-function Authlets({ auth }) {
-  const router = useRouter();
-  const { loginWithGoogle, loginWithGithub } = useAuth();
-
-  const login_nav = () => router.push("/auth/login");
-
-  return (
-    <div className={sections.authlets}>
-      <Authlet icon="verifier-google" callback={loginWithGoogle} />
-      <Authlet icon="verifier-github" callback={loginWithGithub} />
-      <Authlet icon="verifier-email" callback={login_nav} />
-    </div>
-  );
-}
-
 export {
   TransactionStats,
   RecentTransaction,
   PopularLand,
-  AccountDetails,
-  Authlets,
+  AccountDetails
 };

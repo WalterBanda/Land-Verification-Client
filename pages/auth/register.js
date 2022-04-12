@@ -1,4 +1,4 @@
-import {AuthInput, Button, AuthPage, Input} from "../../components";
+import {Button, AuthPage, Input} from "../../components";
 import {auth, input} from "../../styles";
 import {useState} from "react";
 import {useRouter} from "next/router";

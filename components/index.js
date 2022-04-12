@@ -15,5 +15,4 @@ export {
   RecentTransaction,
   PopularLand,
   AccountDetails,
-  Authlets,
 } from "./components/sections";

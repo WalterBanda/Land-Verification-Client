@@ -3,7 +3,8 @@ import {ErrorCode, useAuth} from "../core";
 import {useRouter} from "next/router";
 
 function ErrorPage({statusCode}) {
-    const {user} = useAuth();
+    // TODO USer Object replacement
+    const {user} = true;
     const router = useRouter()
 
     if (typeof (window) !== "undefined") {
