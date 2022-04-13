@@ -1,7 +1,11 @@
-import {Router} from "../core"
+import { Builder } from "../components";
 
 function Index() {
-  return <Router/>;
+  return (
+    <Builder>
+      <p>Redirecting...</p>
+    </Builder>
+  );
 }
 
 export default Index;

@@ -50,7 +50,7 @@ export function AuthInput({ type }) {
       icon={type === "password" ? "verifier-password" : "verifier-email"}
       input_type={type === "password" ? "password" : "email"}
       onChange={type === "password" ? validate_password : validate_email}
-      className={input.auth}
+      className={typing ? ` ${input.auth}` : input.auth}
     />
   );
 }

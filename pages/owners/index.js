@@ -1,7 +1,6 @@
 import { PageBuilder } from "../../components";
 import { home } from "../../styles";
 import {
-  TransactionStats,
   AccountDetails,
   RecentTransaction,
 } from "../../components";

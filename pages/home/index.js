@@ -1,22 +1,20 @@
-import { PageBuilder } from "../../components";
-import { home } from "../../styles";
+import {PageBuilder} from "../../components";
+import {home} from "../../styles";
 import {
-  TransactionStats,
-  PopularLand,
-  AccountDetails,
-  RecentTransaction,
+    TransactionStats,
+    AccountDetails,
+    RecentTransaction,
 } from "../../components";
 
 export default function Index() {
-  return (
-    <div className={home.root}>
-      <TransactionStats />
-      {/* <PopularLand /> */}
-      <AccountDetails />
-      <RecentTransaction />
-    </div>
-  );
+    return (
+        <div className={home.root}>
+            <TransactionStats/>
+            <AccountDetails/>
+            <RecentTransaction/>
+        </div>
+    );
 }
 Index.getLayout = function getLayout(page) {
-  return <PageBuilder title="Home">{page}</PageBuilder>;
+    return <PageBuilder title="Home ">{page}</PageBuilder>;
 };

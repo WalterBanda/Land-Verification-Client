@@ -1,7 +1,7 @@
-import "../styles/global.scss"
+import "../styles/global.scss";
 
-export default function App({ Component, pageProps }) {
-  const getLayout = Component.getLayout || ((page) => page)
+export default function App({Component, pageProps}) {
+    const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(<Component {...pageProps} />)
+    return getLayout(<Component {...pageProps} />);
 }
