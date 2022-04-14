@@ -11,7 +11,10 @@ export function DataProvider(props) {
     const [transactions, setTransactions] = useState([{error: "Loading ..."}]);
     const [chain, setChain] = useState([{error: "Loading ..."}]);
 
-    const initialLoad = () => setTransactions(DataService.fetchTransactions())
+    const initialLoad = () => {
+        setTransactions(DataService.fetchTransactions())
+        setChain(DataService.fetchChain())
+    }
 
     const refreshTransactions = () => setTransactions(DataService.fetchTransactions())
     const refreshChain = () => setChain(DataService.fetchChain())
