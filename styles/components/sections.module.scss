@@ -24,6 +24,36 @@
   padding-right: 0.4rem;
 }
 
+.transaction_root {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  height: fit-content !important;
+
+  font-size: 1rem;
+  font-weight: normal;
+
+  .desc {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    i {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  h1 {
+    font-size: 1.2rem !important;
+  }
+
+  h1,h2,h3 {
+    all: unset;
+    text-transform: capitalize;
+  }
+}
+
 .register_user {
   all: unset;
   font-weight: 700;

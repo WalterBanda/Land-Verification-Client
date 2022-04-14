@@ -7,6 +7,7 @@ import {
 } from "../../components";
 
 export default function Index() {
+
     return (
         <div className={home.root}>
             <TransactionStats/>

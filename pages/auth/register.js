@@ -37,7 +37,7 @@ export default function Register() {
                     className={typing ? ` ${input.auth}` : input.auth}
                 />
             </form>
-            <Button className={auth.btn}>Register</Button>
+            <Button className={auth.btn} onClick={()=> router.replace("/home")}>Register</Button>
         </div>
     );
 }

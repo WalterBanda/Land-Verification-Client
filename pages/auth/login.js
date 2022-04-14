@@ -38,7 +38,7 @@ export default function Login() {
                     className={typing ? ` ${input.auth}` : input.auth}
                 />
             </form>
-            <Button className={auth.btn}>Login</Button>
+            <Button className={auth.btn} onClick={()=> router.replace("/home")}>Login</Button>
         </div>
     );
 }

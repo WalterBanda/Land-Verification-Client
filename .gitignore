@@ -26,6 +26,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
+/.env/
 .env.local
 /.env/
 .env.development.local
@@ -35,7 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Project config & Setup 
+# Project services & Setup
 /.idea/
 /.vscode/
 /.playground/

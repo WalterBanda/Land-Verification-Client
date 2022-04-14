@@ -1,5 +1,5 @@
 import {PageBuilder, Builder} from "../components";
-import {ErrorCode, useAuth} from "../core";
+import {ErrorCode} from "../core";
 import {useRouter} from "next/router";
 
 function ErrorPage({statusCode}) {
@@ -7,12 +7,12 @@ function ErrorPage({statusCode}) {
     const {user} = true;
     const router = useRouter()
 
-    if (typeof (window) !== "undefined") {
-        setTimeout(() => {
-            router.push("/").then(() => {
-            })
-        }, 6000);
-    }
+    // if (typeof (window) !== "undefined") {
+    //     setTimeout(() => {
+    //         router.push("/").then(() => {
+    //         })
+    //     }, 6000);
+    // }
 
     if (!user) {
         return (

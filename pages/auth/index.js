@@ -10,7 +10,7 @@ export default function Index() {
             <div className={sections.authlets}>
                 <Authlet icon="verifier-google"/>
                 <Authlet icon="verifier-github"/>
-                <Authlet icon="verifier-email" callback={()=>router.push("/auth/login")} />
+                <Authlet icon="verifier-email" callback={() => router.push("/auth/login")}/>
             </div>
             <RegisterUser/>
         </div>
