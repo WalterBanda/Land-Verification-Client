@@ -3,7 +3,7 @@ import {default as Auth} from "./auth/index"
 import {AuthPage, PageBuilder} from "../components";
 
 export default function Index() {
-    const {user} = true;
+    const {user} = false;
 
     if (user !== true) {
         return (
