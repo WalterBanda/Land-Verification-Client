@@ -1,2 +1,2 @@
-export { Router } from "./routes/router";
 export { ErrorCode } from "./utils/error";
+export {firebaseAuth,firestoreDB,app,app_prod_mode,} from "./config/firebase.config"

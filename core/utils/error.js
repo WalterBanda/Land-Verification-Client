@@ -12,7 +12,7 @@ function ErrorCode({ status, message }) {
           {message ?? (
             <div className={error.message}>
               <h2>Error 😢 occurred, return to safety by clicking below</h2>
-              <h3 onClick={() => router.push("/home")}>➡ Return to safety</h3>
+              <h3 onClick={() => router.push("/")}>➡ Return to safety</h3>
             </div>
           )}
         </div>
