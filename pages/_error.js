@@ -7,12 +7,12 @@ function ErrorPage({statusCode}) {
     const {user} = true;
     const router = useRouter()
 
-    // if (typeof (window) !== "undefined") {
-    //     setTimeout(() => {
-    //         router.push("/").then(() => {
-    //         })
-    //     }, 6000);
-    // }
+    if (typeof (window) !== "undefined") {
+        setTimeout(() => {
+            router.push("/").then(() => {
+            })
+        }, 6000);
+    }
 
     if (!user) {
         return (

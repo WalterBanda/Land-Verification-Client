@@ -4,19 +4,19 @@ class TransactionService {
         this.data = [{error: "Fetching data ..."}]
     }
 
-    getdata() {
+    getTransactions() {
         fetch("/api/transactions")
             .then((res) => res.json())
             .then((result) => {
-                this.data = result
+                this.data = result.length > 0 ? result : [{error: "☕ Initiating Transactions"}]
             }).catch((error) => {
-                this.data = [{error: `Unable to fetch transaction 😢: ${error.statusCode}`}]
-            })
+            this.data = [{error: `Unable to fetch transaction 😢: ${error}`}]
+        })
         return this.data
     }
 
     fetchTransactions() {
-        return this.getdata();
+        return this.getTransactions();
     }
 }
 
