@@ -11,12 +11,15 @@ export function StatsProvider(props) {
     const [stats, setStats] = useState([{error: "Loading ..."}]);
     const [chain, setChain] = useState([{error: "Loading ..."}]);
 
-    const initialLoad = () => setStats(DataService.fetchTransactions())
+    const initialStatsLoad = () => {
+        setStats(DataService.fetchTransactions())
+        setChain(DataService.fetchChain())
+    }
 
     const refreshTransactions = () => setStats(DataService.fetchTransactions())
     const refreshChain = () => setChain(DataService.fetchChain())
 
-    const value = {stats, chain, refreshTransactions, refreshChain, initialLoad};
+    const value = {stats, chain, refreshTransactions, refreshChain, initialStatsLoad};
 
     return <statsContext.Provider value={value} {...props} />;
 }
