@@ -14,7 +14,7 @@ export default function Sidebar({children}) {
             <div className={sidebar.root}>
                 <SidebarItem itemName="dashboard" itemIcon="verifier-home" pageLink="/home"/>
                 <SidebarItem itemName="land owners" itemIcon="verifier-history" pageLink="/owners"/>
-                <SidebarItem itemName="transactions" itemIcon="verifier-transactions" pageLink="/transactions"/>
+                <SidebarItem itemName="stats" itemIcon="verifier-stats" pageLink="/stats"/>
                 <SidebarItem itemName="settings" itemIcon="verifier-settings" pageLink="/settings"/>
             </div>
         )
