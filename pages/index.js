@@ -1,19 +1,20 @@
-import {Builder} from "../components";
-import {useRouter} from "next/router";
+import {default as Home} from "./home/index"
+import {default as Auth} from "./auth/index"
+import {AuthPage, PageBuilder} from "../components";
 
-function Index() {
-    const router = useRouter()
-    if (typeof (window) !== "undefined") {
-        setTimeout(() => {
-            router.push("/home").then(() => {
-            })
-        }, 1000);
+export default function Index() {
+    const {user} = true;
+
+    if (user !== true) {
+        return (
+            <PageBuilder title="Dashboard">
+                <Home/>
+            </PageBuilder>
+        );
     }
     return (
-        <Builder>
-            <p>Redirecting...</p>
-        </Builder>
+        <AuthPage title="Onboarding">
+            <Auth/>
+        </AuthPage>
     );
 }
-
-export default Index;
