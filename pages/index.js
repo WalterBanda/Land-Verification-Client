@@ -5,7 +5,7 @@ import {AuthPage, PageBuilder} from "../components";
 export default function Index() {
     const {user} = false;
 
-    if (user !== true) {
+    if (user === true) {
         return (
             <PageBuilder title="Dashboard">
                 <Home/>
