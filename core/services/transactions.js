@@ -1,23 +1,39 @@
-class TransactionService {
+class DataService {
 
     constructor() {
-        this.data = [{error: "Fetching data ..."}]
+        this.transactions = [{error: "Fetching transactions ..."}]
+        this.chain = [{error: "Getting The BlockChain ..."}]
     }
 
     getTransactions() {
         fetch("/api/transactions")
             .then((res) => res.json())
             .then((result) => {
-                this.data = result.length > 0 ? result : [{error: "☕ Initiating Transactions"}]
+                this.transactions = result.length > 0 ? result : [{error: "☕ Initiating Transactions"}]
             }).catch((error) => {
-            this.data = [{error: `Unable to fetch transaction 😢: ${error}`}]
+            this.transactions = [{error: `Unable to fetch transaction 😢: ${error}`}]
         })
-        return this.data
+        return this.transactions
+    }
+
+    getChain() {
+        fetch("/api/blockchain")
+            .then((res) => res.json())
+            .then((result) => {
+                this.chain = result.length > 0 ? result : [{error: "⛓ Initiating Blockchain"}]
+            }).catch((error) => {
+            this.transactions = [{error: `😢 Fetching Chain Failed: ${error}`}]
+        })
+        return this.chain
     }
 
     fetchTransactions() {
         return this.getTransactions();
     }
+
+    fetchChain() {
+        return this.getChain();
+    }
 }
 
-export default new TransactionService()
+export default new DataService()

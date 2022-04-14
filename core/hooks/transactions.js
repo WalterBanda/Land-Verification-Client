@@ -1,5 +1,5 @@
 import {createContext, useContext, useState} from "react";
-import TransactionService from "../services/transactions"
+import DataService from "../services/transactions"
 
 const transactionContext = createContext();
 
@@ -9,12 +9,14 @@ export function useData() {
 
 export function DataProvider(props) {
     const [transactions, setTransactions] = useState([{error: "Loading ..."}]);
+    const [chain, setChain] = useState([{error: "Loading ..."}]);
 
-    const initialLoad = () => {
-        setTransactions(TransactionService.fetchTransactions())
-    }
+    const initialLoad = () => setTransactions(DataService.fetchTransactions())
 
-    const value = {transactions, setTransactions, initialLoad};
+    const refreshTransactions = () => setTransactions(DataService.fetchTransactions())
+    const refreshChain = () => setChain(DataService.fetchChain())
+
+    const value = {transactions, chain, refreshTransactions, refreshChain, initialLoad};
 
     return <transactionContext.Provider value={value} {...props} />;
 }
