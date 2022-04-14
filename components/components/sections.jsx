@@ -1,5 +1,6 @@
 import {sections} from "../../styles";
 import {Stat, Card} from "../index";
+import {useData} from "../../core/hooks/transactions";
 
 function TransactionStats() {
     return (
@@ -52,33 +53,27 @@ function AccountDetails() {
     );
 }
 
-function RecentTransaction({title, data}) {
+function RecentTransaction({title}) {
 
-    const transactions = async () => {
-        return await fetch("/api/transactions").then((res) => res.json()).then((data) => {
-            return data
-        }).catch((error) => {
-            return {error: "Unable to fetch transactions"}
-        })
-    }
+    const {transactions} = useData()
 
     return (
         <div>
             <p className={sections.header}> {title ?? "Recent Transactions"} </p>
             <div className={sections.transactions}>
-                {transactions.error === null || undefined ?
-                    transactions.map((transaction) => {
-                        return <Card key={transaction.landId} className={sections.transaction_root}>
-                            <content>
+                {transactions.map((transaction) => {
+                    return <Card key={transactions.indexOf(transaction)} className={sections.transaction_root}>
+                        {transaction.error ? transaction.error : <>
                                 <h2>Owner: {transaction.owner}</h2>
                                 <h3>Buyer: {transaction.receiver}</h3>
-                            </content>
-                            <desc>
+                            <div className={sections.desc}>
                                 <i className="verifier-transactions"/>
                                 <h1>{transaction.size}</h1>
-                            </desc>
-                        </Card>
-                    }) : <Card>Unable to fetch transaction 😢</Card>}
+                            </div>
+                        </>
+                        }
+                    </Card>
+                })}
             </div>
         </div>
     );

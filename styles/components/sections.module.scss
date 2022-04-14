@@ -29,11 +29,12 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
+  height: fit-content !important;
 
   font-size: 1rem;
   font-weight: normal;
 
-  desc {
+  .desc {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -43,16 +44,11 @@
     }
   }
 
-  content {
-    display: flex;
-    flex-flow: column nowrap;
+  h1 {
+    font-size: 1.2rem !important;
   }
 
-  h2 {
-    margin-bottom: 1rem !important;
-  }
-
-  h2,h3 {
+  h1,h2,h3 {
     all: unset;
     text-transform: capitalize;
   }

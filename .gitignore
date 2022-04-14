@@ -35,7 +35,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Project config & Setup 
+# Project services & Setup
 /.idea/
 /.vscode/
 /.playground/

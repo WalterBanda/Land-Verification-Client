@@ -1,22 +1,20 @@
+import {createContext, useContext, useState} from "react";
+import TransactionService from "../services/transactions"
 
-const loginWithGithub = async () => {
-    const { error, user } = await LoginService.loginWithGithub();
-    setUser(user ?? null);
-    setError(error ?? "");
-};
-const logout = async () => {
-    await LoginService.logout();
-    setUser(null);
-};
-const value = {
-    user,
-    error,
-    loginWithGoogle,
-    loginWithGithub,
-    signUpWithEmail,
-    loginWithEmail,
-    logout,
-    setUser,
-};
-return <authContext.Provider value={value} {...props} />;
+const transactionContext = createContext();
+
+export function useData() {
+    return useContext(transactionContext);
+}
+
+export function DataProvider(props) {
+    const [transactions, setTransactions] = useState([{error: "Loading ..."}]);
+
+    const initialLoad = () => {
+        setTransactions(TransactionService.fetchTransactions())
+    }
+
+    const value = {transactions, setTransactions, initialLoad};
+
+    return <transactionContext.Provider value={value} {...props} />;
 }
