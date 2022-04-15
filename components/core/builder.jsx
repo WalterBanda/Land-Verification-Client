@@ -3,7 +3,6 @@ import Image from "next/image";
 import {builder, auth} from "../../styles";
 import logo from "../../public/assets/res/logo.svg";
 import Header, {Theme_Switcher} from "./header";
-import {Card as div} from "../widgets/components";
 import Sidebar from "./sidebar";
 
 export function PageBuilder({title, children}) {

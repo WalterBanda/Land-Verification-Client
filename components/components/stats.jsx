@@ -1,5 +1,5 @@
 import {sections} from "../../styles";
-import {Card, Stat} from "../widgets/components";
+import {Stat} from "../widgets/components";
 import {useStats} from "../../core";
 
 function TransactionStats() {

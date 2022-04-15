@@ -1,5 +1,4 @@
-import {useData} from "../hooks/transactions";
-import {useStats} from "../hooks";
+import {useData, useStats} from "../hooks";
 
 export default function LoadData({interval}) {
     const {initialLoad} = useData()
@@ -7,5 +6,6 @@ export default function LoadData({interval}) {
 
     setTimeout(() => {
         initialLoad()
-    }, interval?? 10000)
+        initialStatsLoad()
+    }, interval ?? 10000)
 }
