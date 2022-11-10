@@ -5,8 +5,8 @@ import LoadData from "../services/loaders";
 export default function Provider({children}) {
     return <>
         <DataProvider>
-            <LoadData/>
             <StatsProvider>
+                <LoadData/>
                 {children}
             </StatsProvider>
         </DataProvider>
