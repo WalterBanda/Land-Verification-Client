@@ -1,10 +1,10 @@
-import {PageBuilder} from "../../components";
-import {home} from "../../styles";
+import {PageBuilder} from "../../../components";
+import {home} from "../../../styles";
 import {
     TransactionStats,
     AccountDetails,
     RecentTransaction,
-} from "../../components";
+} from "../../../components";
 
 export default function Index() {
 
