@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider, GithubAuthProvider, getAuth } from "firebase/auth"
+import { signInWithPopup, GoogleAuthProvider, GithubAuthProvider, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
 
 class AuthService {
 
@@ -12,6 +12,18 @@ class AuthService {
     }
     githubLogin({ router }) {
         signInWithPopup(getAuth(), this.#githubProvider).then(() => {
+            router.replace('/dashboard')
+        }).catch(() => { })
+    }
+
+    createAccount({ email, password, router }) {
+        createUserWithEmailAndPassword(getAuth(), email, password).then(() => {
+            router.replace('/dashboard')
+        }).catch(() => { })
+    }
+
+    login({ email, password, router }) {
+        signInWithEmailAndPassword(getAuth(), email, password).then(() => {
             router.replace('/dashboard')
         }).catch(() => { })
     }
