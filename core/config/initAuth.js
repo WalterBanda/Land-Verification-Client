@@ -1,4 +1,4 @@
-import {init} from "next-firebase-auth";
+import { init } from "next-firebase-auth";
 import {
     app_prod_mode,
     firebase_admin_config,
@@ -8,15 +8,19 @@ import {
 const initAuth = () => {
     init({
         debug: app_prod_mode,
+
         authPageURL: "/auth",
-        appPageURL: "/home",
+        appPageURL: "/dashboard",
         loginAPIEndpoint: "/api/auth/login", // required
         logoutAPIEndpoint: "/api/auth/logout", // required
+
         firebaseAdminInitConfig: {
             credential: firebase_admin_config,
         },
+
         firebaseClientInitConfig: firebaseConfig,
         firebaseAuthEmulatorHost: process.env.FIREBASE_AUTH_EMULATOR_HOST,
+
         cookies: {
             name: "LandVerifier", // required
             // Keys are required unless you set `signed` to `false`.

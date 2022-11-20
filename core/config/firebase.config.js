@@ -1,4 +1,5 @@
 const app_prod_mode = process.env.APP_RUNTIME_MODE === "development"
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
