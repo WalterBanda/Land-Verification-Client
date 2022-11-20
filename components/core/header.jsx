@@ -2,6 +2,7 @@ import Image from "next/image";
 import profile from "../../public/assets/img/profile.png";
 import { useState, useEffect } from "react";
 import { header } from "../../styles";
+import { useAuth } from "@core/hooks/auth";
 
 export default function Header({ title, children }) {
   return (
@@ -68,9 +69,11 @@ export function Theme_Switcher() {
 }
 
 function Profile() {
+  const { user } = useAuth();
+
   return (
     <div className={header.profile}>
-      <Image src={profile} alt="User Profile Photo" layout="fill" />
+      <img src={user?.photoURL} alt="" />
     </div>
   );
 }

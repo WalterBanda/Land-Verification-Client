@@ -18,6 +18,7 @@ export function AuthProvider(props) {
 
         const firebaseApp = initAuth()
         setApp(firebaseApp)
+        setUser(getAuth(firebaseApp).currentUser)
 
         onAuthStateChanged(getAuth(firebaseApp), (currentUser) => {
             if (!user) {
@@ -30,10 +31,10 @@ export function AuthProvider(props) {
 
         onIdTokenChanged(getAuth(firebaseApp), async (user) => {
             if (!user) {
-                nookies.set(undefined, 'LandVerifier.AuthUserTokens', '', { path: '/', });
+                nookies.set(undefined, 'LandVerifier.AuthUserTokens', '', { path: '/', sameSite: 'lax' });
             } else {
                 const token = await user.getIdToken();
-                nookies.set(undefined, 'LandVerifier.AuthUserTokens', token, { path: '/' });
+                nookies.set(undefined, 'LandVerifier.AuthUserTokens', token, { path: '/', sameSite: 'lax' });
             }
         })
 
