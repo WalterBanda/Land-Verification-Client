@@ -26,7 +26,7 @@ class AuthService {
     createAccount({ email, password, router }) {
         createUserWithEmailAndPassword(getAuth(), email, password).then((credential) => {
             router.replace('/dashboard')
-            toast.success(`${credential?.user?.displayName} Welcome to Land Verifier`)
+            toast.success(`${credential?.user?.displayName ?? ''} Welcome to Land Verifier`)
         }).catch((error) => {
             toast.error(`Unable to login, ErrorCode: ${error?.code}`)
         })
@@ -35,7 +35,7 @@ class AuthService {
     login({ email, password, router }) {
         signInWithEmailAndPassword(getAuth(), email, password).then((credential) => {
             router.replace('/dashboard')
-            toast.success(`${credential?.user?.displayName} Welcome to Land Verifier`)
+            toast.success(`${credential?.user?.displayName ?? ''} Welcome to Land Verifier`)
         }).catch((error) => {
             toast.error(`Unable to login, ErrorCode: ${error?.code}`)
         })
