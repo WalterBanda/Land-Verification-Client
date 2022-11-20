@@ -1,4 +1,9 @@
+import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
+import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { init } from "next-firebase-auth";
+import { getApp } from "firebase/app";
 import {
     app_prod_mode,
     firebase_admin_config,
@@ -39,5 +44,16 @@ const initAuth = () => {
         },
     });
 };
+
+export function initEmulators() {
+
+    //? Init Emulators
+    if (app_prod_mode) {
+        connectAuthEmulator(getAuth(), "http://localhost:9099");
+        connectFirestoreEmulator(getFirestore(), "localhost", 8080);
+        connectFunctionsEmulator(getFunctions(), "localhost", 5001);
+        connectStorageEmulator(getStorage(), "localhost", 9199);
+    }
+}
 
 export default initAuth;
