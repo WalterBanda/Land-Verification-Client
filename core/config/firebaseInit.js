@@ -6,34 +6,23 @@ import { app_prod_mode, firebaseConfig } from "./firebase.config";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics"
 
-
-//? Manual Initialization
-if (!getApps.length) {
-    initializeApp(firebaseConfig);
+export default function initAuth() {
     if (typeof window !== "undefined") {
-        if ("measurementId" in firebaseConfig) {
-            getAnalytics();
+        //? Manual Initialization
+        if (!getApps.length) {
+            const app = initializeApp(firebaseConfig);
+            if ("measurementId" in firebaseConfig) {
+                getAnalytics();
+            }
+
+
+            //? Init Emulators
+            if (app_prod_mode) {
+                connectAuthEmulator(getAuth(app), "http://localhost:9099");
+                connectFirestoreEmulator(getFirestore(app), "localhost", 8080);
+                connectFunctionsEmulator(getFunctions(app), "localhost", 5001);
+                connectStorageEmulator(getStorage(app), "localhost", 9199);
+            }
         }
     }
-}
-
-const app = getApp();
-const firestoreDB = getFirestore(app);
-const storage = getStorage(app);
-const firebaseAuth = getAuth(app);
-
-//? Init Emulators
-if (app_prod_mode) {
-    connectAuthEmulator(firebaseAuth, "http://localhost:9099");
-    connectFirestoreEmulator(firestoreDB, "localhost", 8080);
-    connectFunctionsEmulator(getFunctions(app), "localhost", 5001);
-    connectStorageEmulator(storage, "localhost", 9199);
-}
-
-
-export {
-    firebaseAuth,
-    app,
-    firestoreDB,
-    storage,
 }

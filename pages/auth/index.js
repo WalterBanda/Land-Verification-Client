@@ -2,9 +2,8 @@ import { AuthPage, RegisterUser, Authlet } from "@components/index";
 import { auth, sections } from "@styles/index";
 import { useRouter } from "next/router";
 import AuthService from "@core/services/auth";
-import { withAuthUser } from "next-firebase-auth";
 
-export function Index() {
+export default function Index() {
     const router = useRouter();
     return (
         <div className={auth.onboarding}>
@@ -22,5 +21,3 @@ export function Index() {
 Index.getLayout = function getLayout(page) {
     return <AuthPage title="Onboarding 🔐">{page}</AuthPage>;
 };
-
-export default withAuthUser({})(Index)
