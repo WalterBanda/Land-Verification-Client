@@ -39,17 +39,15 @@ export default function Sidebar({ children }) {
 
 function SidebarItem({ itemName, itemIcon, pageLink }) {
   const router = useRouter();
-  const [active, setActive] = useState({});
-
-  useEffect(() => {
-    setActive({
-      color: router.pathname.startsWith(pageLink) ? "var(--text-active)" : "",
-    });
-  }, [pageLink, router.pathname]);
 
   return (
     <Link href={pageLink} passHref>
-      <div className={`${sidebar.item}`} style={active}>
+      <div
+        className={`${sidebar.item}`}
+        style={{
+          color: router.pathname == pageLink ? "var(--text-active)" : undefined,
+        }}
+      >
         <i className={`${itemIcon}`} />
         <h2>{itemName}</h2>
       </div>
