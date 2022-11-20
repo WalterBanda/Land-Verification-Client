@@ -89,10 +89,12 @@
 .login {
   display: flex;
   flex-flow: column nowrap;
+  gap: 2rem;
 
-  form > div,
-  button {
-    margin-bottom: 1.2rem;
+  & > form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
   }
 
   & > p {
@@ -105,10 +107,12 @@
 .register {
   display: flex;
   flex-flow: column nowrap;
+  gap: 2rem;
 
-  form > div,
-  button {
-    margin-bottom: 1.2rem;
+  & > form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
   }
 
   & > p {
