@@ -7,10 +7,11 @@ import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics"
 
 export default function initAuth() {
+    let app;
     if (typeof window !== "undefined") {
         //? Manual Initialization
         if (!getApps.length) {
-            const app = initializeApp(firebaseConfig);
+            app = initializeApp(firebaseConfig);
             if ("measurementId" in firebaseConfig) {
                 getAnalytics();
             }
@@ -25,4 +26,6 @@ export default function initAuth() {
             }
         }
     }
+
+    return app ?? getApp()
 }
