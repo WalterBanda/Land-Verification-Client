@@ -1,9 +1,8 @@
-import { PageBuilder } from "../../components";
-import { home } from "../../styles";
 import {
   TransactionStats,
-  RecentTransaction,
-} from "../../components";
+  RecentTransaction, PageBuilder
+} from "@components/index";
+import { home } from "@styles/index";
 
 export default function Index() {
   return (

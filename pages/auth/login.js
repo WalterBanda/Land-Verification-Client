@@ -1,24 +1,11 @@
-import {Input, Button, AuthPage} from "../../components";
-import {auth, input} from "../../styles";
-import {useState} from "react";
-import {useRouter} from "next/router";
+import { Input, Button, AuthPage } from "../../components";
+import { auth, input } from "@styles/index";
 
 export default function Login() {
-
-    const [typing, setTyping] = useState(false);
-    const router = useRouter()
-
-    const validate_email = (event) => {
-        setTyping(true);
-    };
-    const validate_password = (event) => {
-        setTyping(true);
-    };
-
     return (
         <div className={auth.login}>
             <div className={auth.nav} onClick={() => router.back()}>
-                <i className="verifier-caret_down"/>
+                <i className="verifier-caret_down" />
                 <span>Back</span>
             </div>
             <p>Login with your Credentials </p>
@@ -27,18 +14,16 @@ export default function Login() {
                     hint="Email address"
                     icon="verifier-email"
                     input_type="email"
-                    onChange={validate_email}
-                    className={typing ? ` ${input.auth}` : input.auth}
+                    className={input.auth}
                 />
                 <Input
                     hint="Your Password"
                     icon="verifier-password"
                     input_type="password"
-                    onChange={validate_password}
-                    className={typing ? ` ${input.auth}` : input.auth}
+                    className={input.auth}
                 />
             </form>
-            <Button className={auth.btn} onClick={()=> router.replace("/home")}>Login</Button>
+            <Button className={auth.btn}>Login</Button>
         </div>
     );
 }
