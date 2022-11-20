@@ -1,24 +1,23 @@
-import {Input, Button, AuthPage} from "../../components";
-import {auth, input} from "../../styles";
-import {useState} from "react";
-import {useRouter} from "next/router";
+import { Input, Button, AuthPage } from "../../components";
+import { auth, input } from "@styles/index";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import AuthService from "@core/services/auth";
 
 export default function Login() {
 
-    const [typing, setTyping] = useState(false);
-    const router = useRouter()
+    const { register, handleSubmit } = useForm()
 
-    const validate_email = (event) => {
-        setTyping(true);
-    };
-    const validate_password = (event) => {
-        setTyping(true);
-    };
+    const router = useRouter();
+
+    const submit = ({ email, password }) => {
+        AuthService.login({ email, password, router })
+    }
 
     return (
         <div className={auth.login}>
             <div className={auth.nav} onClick={() => router.back()}>
-                <i className="verifier-caret_down"/>
+                <i className="verifier-caret_down" />
                 <span>Back</span>
             </div>
             <p>Login with your Credentials </p>
@@ -27,18 +26,20 @@ export default function Login() {
                     hint="Email address"
                     icon="verifier-email"
                     input_type="email"
-                    onChange={validate_email}
-                    className={typing ? ` ${input.auth}` : input.auth}
+                    icon_leading
+                    className={input.auth}
+                    {...register('email', { required: true })}
                 />
                 <Input
                     hint="Your Password"
                     icon="verifier-password"
                     input_type="password"
-                    onChange={validate_password}
-                    className={typing ? ` ${input.auth}` : input.auth}
+                    icon_leading
+                    className={input.auth}
+                    {...register('password', { required: true })}
                 />
             </form>
-            <Button className={auth.btn} onClick={()=> router.replace("/home")}>Login</Button>
+            <Button className={auth.btn} onClick={handleSubmit(submit)}>Login</Button>
         </div>
     );
 }

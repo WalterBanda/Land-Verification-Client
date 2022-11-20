@@ -1,5 +1,5 @@
-import { PageBuilder } from "../../components";
-import { home } from "../../styles";
+import { PageBuilder } from "@components/index";
+import { home } from "@styles/index";
 import Link from "next/link"
 
 export default function Index() {

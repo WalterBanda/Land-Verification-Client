@@ -4,19 +4,20 @@
   justify-content: center;
   align-items: center;
 
-  padding: 1.1rem 1.5rem 1.1rem 1.875rem;
+  padding: 1rem;
   background: var(--input-bg);
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   max-width: 40rem;
   color: inherit;
 
   input {
     width: 100% !important;
     all: unset;
+    font-size: 1rem;
   }
 
   i {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-right: 0.5rem;
   }
 }
@@ -52,25 +53,17 @@ html[theme="light"] {
     color: darken($form-initial, $amount: 20);
   }
 }
-.auth {
-  color: $form-initial;
-  input::placeholder {
-    color: inherit;
-  }
 
-  &:focus {
+.auth {
+  &[data-state="typing"] {
     color: lighten($form-initial, $amount: 40);
   }
-}
 
-.typing {
-  color: lighten($form-initial, $amount: 40);
-}
+  &[data-state="success"] {
+    color: lighten($form-success, $amount: 10);
+  }
 
-.success {
-  color: lighten($form-success, $amount: 10);
-}
-
-.failed {
-  color: lighten($form-error, $amount: 10);
+  &[data-state="failed"] {
+    color: lighten($form-error, $amount: 10);
+  }
 }

@@ -1,18 +1,23 @@
-import {DataProvider} from "./transactions";
-import {StatsProvider} from "./stats";
+import { DataProvider } from "./transactions";
+import { StatsProvider } from "./stats";
 import LoadData from "../services/loaders";
+import { AuthProvider } from "./auth";
+import { Toaster } from "react-hot-toast";
 
-export default function Provider({children}) {
+export default function Provider({ children }) {
     return <>
-        <DataProvider>
-            <StatsProvider>
-                <LoadData/>
-                {children}
-            </StatsProvider>
-        </DataProvider>
+        <AuthProvider>
+            <DataProvider>
+                <StatsProvider>
+                    {children}
+                    <LoadData />
+                    <Toaster position="top-right" reverseOrder={false} />
+                </StatsProvider>
+            </DataProvider>
+        </AuthProvider>
     </>
 }
 
 
-export {useStats} from "./stats"
-export {useData} from "./transactions"
+export { useStats } from "./stats"
+export { useData } from "./transactions"

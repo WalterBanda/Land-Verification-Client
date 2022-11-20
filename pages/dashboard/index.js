@@ -1,18 +1,17 @@
-import {PageBuilder} from "../../components";
-import {home} from "../../styles";
 import {
     TransactionStats,
     AccountDetails,
-    RecentTransaction,
-} from "../../components";
+    RecentTransaction, PageBuilder
+} from "@components/index";
+import { home } from "@styles/index";
 
 export default function Index() {
 
     return (
         <div className={home.root}>
-            <TransactionStats/>
-            <AccountDetails/>
-            <RecentTransaction/>
+            <TransactionStats />
+            <AccountDetails />
+            <RecentTransaction />
         </div>
     );
 }

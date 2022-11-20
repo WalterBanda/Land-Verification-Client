@@ -41,8 +41,13 @@
 }
 
 @media screen and (max-width: 425px) {
+  .root {
+      height: unset;
+  }
   .page {
     width: 80%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
@@ -89,10 +94,12 @@
 .login {
   display: flex;
   flex-flow: column nowrap;
+  gap: 2rem;
 
-  form > div,
-  button {
-    margin-bottom: 1.2rem;
+  & > form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
   }
 
   & > p {
@@ -105,10 +112,12 @@
 .register {
   display: flex;
   flex-flow: column nowrap;
+  gap: 2rem;
 
-  form > div,
-  button {
-    margin-bottom: 1.2rem;
+  & > form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
   }
 
   & > p {

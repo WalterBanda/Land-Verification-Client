@@ -13,9 +13,11 @@
     "firebase": "^9.6.10",
     "firebase-admin": "^10.0.2",
     "next": "12.1.4",
-    "next-firebase-auth": "^0.14.3",
+    "nookies": "^2.5.2",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-hook-form": "^7.39.4",
+    "react-hot-toast": "^2.4.0"
   },
   "devDependencies": {
     "eslint": "8.12.0",
