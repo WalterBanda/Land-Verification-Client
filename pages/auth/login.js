@@ -1,7 +1,11 @@
 import { Input, Button, AuthPage } from "../../components";
 import { auth, input } from "@styles/index";
+import { useRouter } from "next/router";
 
 export default function Login() {
+
+    const router = useRouter();
+
     return (
         <div className={auth.login}>
             <div className={auth.nav} onClick={() => router.back()}>

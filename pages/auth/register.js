@@ -1,7 +1,11 @@
 import { Button, AuthPage, Input } from "@components/index";
 import { auth, input } from "@styles/index";
+import { useRouter } from "next/router";
 
 export default function Register() {
+
+    const router = useRouter();
+
     return (
         <div className={auth.register}>
             <div className={auth.nav} onClick={() => router.back()}>
