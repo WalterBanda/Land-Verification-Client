@@ -70,7 +70,7 @@ export function Theme_Switcher() {
 function Profile() {
   return (
     <div className={header.profile}>
-      <Image src={profile} alt="User Profile Photo" />
+      <Image src={profile} alt="User Profile Photo" layout="fill" />
     </div>
   );
 }
