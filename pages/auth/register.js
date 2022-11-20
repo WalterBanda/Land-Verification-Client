@@ -14,12 +14,14 @@ export default function Register() {
                     hint="Email address"
                     icon="verifier-email"
                     input_type="email"
+                    icon_leading
                     className={input.auth}
                 />
                 <Input
                     hint="Your Password"
                     icon="verifier-password"
                     input_type="password"
+                    icon_leading
                     className={input.auth}
                 />
             </form>
