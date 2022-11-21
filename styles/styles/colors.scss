@@ -12,6 +12,7 @@ $color-bg-dark: rgb(17, 24, 39);
   --bg: #ffffff;
   --card-bg: var(--bg);
   --input-bg: rgb(241, 243, 244);
+  --shadow: rgba(0, 0, 0, 0.16);
 }
 @mixin dark-theme {
   --text-header: rgb(255, 255, 255);
@@ -21,6 +22,7 @@ $color-bg-dark: rgb(17, 24, 39);
   --bg: rgb(17, 24, 39);
   --card-bg: rgb(31, 41, 55);
   --input-bg: rgb(32, 33, 36);
+  --shadow: rgb(201, 243, 244,0.1);
 }
 
 html[theme="light"] {

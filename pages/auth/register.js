@@ -6,7 +6,7 @@ import AuthService from "@core/services/auth";
 
 export default function Register() {
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
     const router = useRouter();
 
@@ -22,22 +22,27 @@ export default function Register() {
             </div>
             <p>Create a new User</p>
             <form>
-                <Input
-                    hint="Email address"
-                    icon="verifier-email"
-                    input_type="email"
-                    icon_leading
-                    className={input.auth}
-                    {...register('email', { required: true })}
-                />
-                <Input
-                    hint="Your Password"
-                    icon="verifier-password"
-                    input_type="password"
-                    icon_leading
-                    className={input.auth}
-                    {...register('password', { required: true })}
-                />
+                <div className={input.auth} data-state={errors['email'] && "failed"}>
+                    <Input
+                        hint="Email address"
+                        icon="verifier-email"
+                        input_type="email"
+                        icon_leading
+                        {...register('email', { required: true, pattern: /^([\w-\.])+@([\w-]+\.)+[\w-]{2,4}$/ })}
+                        data-state={errors['email'] && "failed"}
+                    />
+                    {errors['email'] && <p>Invalid email</p>}
+                </div>
+                <div className={input.auth} data-state={errors['password'] && "failed"}>
+                    <Input
+                        hint="Your Password"
+                        icon="verifier-password"
+                        input_type="password"
+                        icon_leading
+                        {...register('password', { required: true })}
+                    />
+                    {errors['password'] && <p>Password is required</p>}
+                </div>
             </form>
             <Button className={auth.btn} onClick={handleSubmit(submit)}>Register</Button>
         </div>

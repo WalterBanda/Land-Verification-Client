@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import { input } from "../../styles";
+import { input } from "@styles/index";
 
 export const Input = forwardRef(
   ({ icon, icon_leading, hint, input_type, className, ...props }, ref) => {
