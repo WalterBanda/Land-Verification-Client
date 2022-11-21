@@ -6,8 +6,10 @@ $color-bg-dark: rgb(17, 24, 39);
 
 @mixin light-theme {
   --text-header: rgb(0, 0, 0);
-  --text-subheader: rgb(51, 70, 167);
+  --text-subheader: rgb(0, 144, 255);
   --text-active: rgba(0, 144, 255, 1);
+
+  --tab: rgb(31, 41, 55, 0.5);
 
   --bg: #ffffff;
   --card-bg: var(--bg);
@@ -19,10 +21,12 @@ $color-bg-dark: rgb(17, 24, 39);
   --text-subheader: rgb(0, 144, 255);
   --text-active: rgba(0, 144, 255, 1);
 
+  --tab: rgb(241, 243, 244);
+
   --bg: rgb(17, 24, 39);
   --card-bg: rgb(31, 41, 55);
   --input-bg: rgb(32, 33, 36);
-  --shadow: rgb(201, 243, 244,0.1);
+  --shadow: rgb(201, 243, 244, 0.1);
 }
 
 html[theme="light"] {
