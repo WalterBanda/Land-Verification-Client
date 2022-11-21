@@ -31,7 +31,7 @@ export default function Index() {
                 <p className={sections.header}>Recent Items</p>
                 <TabsUnstyled defaultValue={0}>
                     <TabsListUnstyled>
-                        <TabUnstyled className={sections.tab}>Transaction</TabUnstyled>
+                        <TabUnstyled className={sections.tab}>Transactions</TabUnstyled>
                         <TabUnstyled className={sections.tab}>Purchased Land</TabUnstyled>
                     </TabsListUnstyled>
                     <TabPanelUnstyled value={0}>
