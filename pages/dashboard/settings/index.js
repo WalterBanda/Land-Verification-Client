@@ -1,4 +1,4 @@
-import { Button, PageBuilder } from "@components/index";
+import { Button, Input, PageBuilder } from "@components/index";
 import { useAuth } from "@core/hooks/auth";
 import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
@@ -32,7 +32,7 @@ function EditProfileModal({ open, handleClose, user }) {
           <img src={user?.photoURL} alt="Profile Url" />
         </div>
         <main>
-          <span>Alternative Profiles</span>
+          <span>Change or add profile picture</span>
           <div className={settings.altProfileContainer}>
             <Button><i className="verifier-add" /></Button>
             <div>
@@ -43,7 +43,8 @@ function EditProfileModal({ open, handleClose, user }) {
       </div>
       <div className={settings.profileDetails}>
         <span>Profile Name</span>
-        <p>{user?.displayName ?? 'UserName'}</p>
+        <Input className={settings.profileDetailsInput} value={user?.displayName} hint={"UserName"} />
+        <Button>Save</Button>
       </div>
     </div>
   </ModalUnstyled>
