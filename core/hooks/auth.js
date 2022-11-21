@@ -21,7 +21,7 @@ export function AuthProvider(props) {
         setUser(getAuth(firebaseApp).currentUser)
 
         onAuthStateChanged(getAuth(firebaseApp), (currentUser) => {
-            if (!user) {
+            if (!currentUser) {
                 setUser(null);
 
             } else {
