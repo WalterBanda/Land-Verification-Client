@@ -1,4 +1,5 @@
-import { PageBuilder } from "@components/index";
+import { LandTransaction } from "@components/components/sections";
+import { PageBuilder, RecentTransaction } from "@components/index";
 import { TabPanelUnstyled, TabsUnstyled, TabUnstyled, TabsListUnstyled } from "@mui/base";
 import { home, components, sections } from "@styles/index";
 
@@ -33,8 +34,12 @@ export default function Index() {
                         <TabUnstyled>Recent Transaction</TabUnstyled>
                         <TabUnstyled>Recent Purchased Land</TabUnstyled>
                     </TabsListUnstyled>
-                    <TabPanelUnstyled value={0}>Transaction Page</TabPanelUnstyled>
-                    <TabPanelUnstyled value={1}>Land Page</TabPanelUnstyled>
+                    <TabPanelUnstyled value={0}>
+                        <RecentTransaction />
+                    </TabPanelUnstyled>
+                    <TabPanelUnstyled value={1}>
+                        <LandTransaction />
+                    </TabPanelUnstyled>
                 </TabsUnstyled>
             </div>
         </div >

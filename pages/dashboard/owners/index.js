@@ -1,14 +1,16 @@
+import { LandTransaction } from "@components/components/sections";
 import {
   AccountDetails,
   RecentTransaction, PageBuilder
 } from "@components/index";
-import { home } from "@styles/index";
+import { home, sections } from "@styles/index";
 
 export default function Index() {
   return (
     <div className={home.root}>
       <AccountDetails />
-      <RecentTransaction title={"Owners List"} />
+      <p className={sections.header}> Owners List </p>
+      <LandTransaction />
     </div>
   );
 }

@@ -2,7 +2,7 @@ class DataService {
 
     constructor() {
         this.transactions = [{error: "Fetching transactions ..."}]
-        this.chain = [{error: "Getting The BlockChain ..."}]
+        this.chain = [{ error: "Connecting to Land BlockChain ..." }]
     }
 
     getTransactions() {
@@ -20,7 +20,7 @@ class DataService {
         fetch("/api/blockchain")
             .then((res) => res.json())
             .then((result) => {
-                this.chain = result.length > 0 ? result : [{error: "⛓ Initiating Blockchain"}]
+                this.chain = result.length > 0 ? result : [{ error: "⛓ Initiating Land Blockchain" }]
             }).catch((error) => {
             this.transactions = [{error: `😢 Fetching Chain Failed: ${error}`}]
         })
