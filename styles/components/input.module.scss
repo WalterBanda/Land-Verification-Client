@@ -55,6 +55,12 @@ html[theme="light"] {
 }
 
 .auth {
+
+  p {
+    font-size: 0.8rem;
+    margin: 0.4rem;
+  }
+
   &[data-state="typing"] {
     color: lighten($form-initial, $amount: 40);
   }
