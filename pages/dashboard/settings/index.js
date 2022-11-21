@@ -3,6 +3,7 @@ import { useAuth } from "@core/hooks/auth";
 import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
 import { forwardRef, useState } from "react";
+import { useController, useForm } from "react-hook-form";
 
 const styles = ['adventurer', 'big-smile', 'croodles', 'female', 'identicon', 'initials', 'jdenticon', 'open-peeps', 'micah']
 
@@ -14,13 +15,19 @@ const Modal = forwardRef(({ ownerState, className, ...props }, ref) => {
   return <div className={components.modal} {...props} ref={ref} />
 })
 
-function AltPhoto({ style, seed }) {
-  return <div className={settings.altProfile}>
+function AltPhoto({ style, seed, ...props }) {
+  return <div className={settings.altProfile}  {...props}>
     <img src={`https://avatars.dicebear.com/api/${style}/${seed}.svg`} alt="" />
   </div>
 }
 
 function EditProfileModal({ open, handleClose, user }) {
+
+  const { register, handleSubmit, control, watch } = useForm({ defaultValues: { img: user?.photoURL, name: user?.displayName } })
+
+  const { field: { onChange, value: img } } = useController({ name: 'img', control })
+
+
   return <ModalUnstyled
     open={open}
     onClose={handleClose}
@@ -29,21 +36,21 @@ function EditProfileModal({ open, handleClose, user }) {
     <div className={settings.editProfileRoot}>
       <div className={settings.editProfile}>
         <div className={settings.logo}>
-          <img src={user?.photoURL} alt="Profile Url" />
+          <img src={img} alt="Profile Url" />
         </div>
         <main>
           <span>Change or add profile picture</span>
           <div className={settings.altProfileContainer}>
             <Button><i className="verifier-add" /></Button>
             <div>
-              {styles.map((style) => <AltPhoto key={style} style={style} seed={user?.uid} />)}
+              {styles.map((style) => <AltPhoto key={style} style={style} seed={user?.uid} onClick={() => onChange(`https://avatars.dicebear.com/api/${style}/${user?.uid}.svg`)} />)}
             </div>
           </div>
         </main>
       </div>
       <div className={settings.profileDetails}>
         <span>Profile Name</span>
-        <Input className={settings.profileDetailsInput} value={user?.displayName} hint={"UserName"} />
+        <Input className={settings.profileDetailsInput} {...register('name')} hint={"UserName"} />
         <Button>Save</Button>
       </div>
     </div>
@@ -71,7 +78,7 @@ function ProfileSettings() {
       <Button className={settings.toogleEdit} onClick={handleOpen}>
         <i className="verifier-info" />
       </Button>
-      <EditProfileModal open={open} handleClose={handleClose} user={user} />
+      {open && <EditProfileModal open={open} handleClose={handleClose} user={user} />}
     </div>
   </div>
 }
