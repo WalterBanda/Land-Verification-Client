@@ -1,22 +1,22 @@
-import { PageBuilder } from "@components/index";
+import { Button, PageBuilder } from "@components/index";
 import { useAuth } from "@core/hooks/auth";
-import { home, sections } from "@styles/index";
+import { home, sections, settings } from "@styles/index";
 
 function ProfileSettings() {
   const { user } = useAuth()
   return <div>
     <p className={sections.header}> Profile Settings </p>
-    <div>
-      <div>
+    <div className={settings.profileRoot}>
+      <div className={settings.logo}>
         <img src={user?.photoURL} alt="Profile Url" />
       </div>
-      <div>
+      <div className={settings.profileDetails}>
         <span>Profile Name</span>
-        <p>{user?.displayName}</p>
+        <p>{user?.displayName ?? 'UserName'}</p>
       </div>
-      <div>
+      <Button className={settings.toogleEdit}>
         <i className="verifier-info" />
-      </div>
+      </Button>
     </div>
   </div>
 }
