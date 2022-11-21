@@ -96,7 +96,7 @@ function Profile() {
           ref={anchorEl}
           onClick={() => close((prev) => !prev)}
         >
-          {user?.photoURL && <img src={user.photoURL} alt="" />}
+          {user?.photoURL && <Image src={user.photoURL} alt="" layout="fill" />}
         </div>
         <PopperUnstyled open={open} anchorEl={anchorEl.current}>
           <div className={header.detail}>
