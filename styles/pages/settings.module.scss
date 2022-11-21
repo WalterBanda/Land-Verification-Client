@@ -66,10 +66,25 @@
 
   padding: 1.4rem;
   border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .editProfile {
   color: var(--text-header);
+  width: 40%;
+}
+
+@media screen and (max-width: 425px) {
+  .editProfileRoot {
+    flex-direction: column;
+  }
+
+  .editProfile {
+    width: 100%;
+  }
 }
 
 .altProfileContainer {
