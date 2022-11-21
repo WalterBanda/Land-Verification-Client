@@ -6,7 +6,6 @@ import { Button } from "..";
 import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import { ClickAwayListener, PopperUnstyled } from "@mui/base";
-import { SidebarItem } from "./sidebar";
 
 export default function Header({ title, children }) {
   return (
@@ -96,7 +95,7 @@ function Profile() {
           ref={anchorEl}
           onClick={() => close((prev) => !prev)}
         >
-          {user?.photoURL && <Image src={user.photoURL} alt="" layout="fill" />}
+          {user?.photoURL && <img src={user.photoURL} alt="" layout="fill" />}
         </div>
         <PopperUnstyled open={open} anchorEl={anchorEl.current}>
           <div className={header.detail}>
