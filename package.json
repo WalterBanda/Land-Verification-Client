@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mui/base": "^5.0.0-alpha.106",
     "axios": "^0.26.1",
     "firebase": "^9.6.10",
     "firebase-admin": "^10.0.2",
