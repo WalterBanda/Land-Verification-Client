@@ -48,7 +48,9 @@
     font-size: 1.2rem !important;
   }
 
-  h1,h2,h3 {
+  h1,
+  h2,
+  h3 {
     all: unset;
     text-transform: capitalize;
   }
@@ -78,4 +80,20 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
+}
+
+.tab {
+  all: unset;
+  color: var(--tab);
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
+  padding: 0.2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &[aria-selected = 'true'] {
+    color: var(--text-active);
+    border-bottom: 0.15rem solid var(--text-active);
+  }
 }
