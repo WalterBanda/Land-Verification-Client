@@ -2,8 +2,10 @@ import { Button, Input, PageBuilder } from "@components/index";
 import { useAuth } from "@core/hooks/auth";
 import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
+import { getAuth, updateProfile } from "firebase/auth";
 import { forwardRef, useState } from "react";
 import { useController, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const styles = ['adventurer', 'big-smile', 'croodles', 'female', 'identicon', 'initials', 'jdenticon', 'open-peeps', 'micah']
 
@@ -26,6 +28,15 @@ function EditProfileModal({ open, handleClose, user }) {
   const { register, handleSubmit, control, watch } = useForm({ defaultValues: { img: user?.photoURL, name: user?.displayName } })
 
   const { field: { onChange, value: img } } = useController({ name: 'img', control })
+
+  const submit = ({ img, name }) => {
+    updateProfile(user, { photoURL: img, displayName: name }).then(() => {
+      handleClose()
+      toast.success("Successfully Updated Profile")
+    }).catch((error) => {
+      toast.success(`Unable to Update Profile, error code ${error?.code}`)
+    })
+  }
 
 
   return <ModalUnstyled
@@ -51,7 +62,7 @@ function EditProfileModal({ open, handleClose, user }) {
       <div className={settings.profileDetails}>
         <span>Profile Name</span>
         <Input className={settings.profileDetailsInput} {...register('name')} hint={"UserName"} />
-        <Button>Save</Button>
+        <Button onClick={handleSubmit(submit)}>Save</Button>
       </div>
     </div>
   </ModalUnstyled>
