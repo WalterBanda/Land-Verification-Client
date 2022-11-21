@@ -20,7 +20,9 @@ export default function Header({ title, children }) {
           />
         </div>
         <div className={header.page}>
-          <h1> {title}</h1>
+          <span>
+            <h1> {title}</h1>
+          </span>
           <div className={header.controls}>
             <Theme_Switcher />
             <Profile />

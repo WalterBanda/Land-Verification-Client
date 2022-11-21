@@ -30,6 +30,7 @@
       flex-flow: row nowrap;
       justify-content: space-around;
       align-items: center;
+      gap: 0.8rem;
     }
   }
 }
@@ -44,7 +45,7 @@
 @media screen and (max-width: 768px) {
   .root {
     .logo {
-      width: 40%;
+      width: 25%;
       justify-content: flex-start;
 
       span {
@@ -52,7 +53,14 @@
       }
     }
     .page {
-      width: 86%;
+      span {
+        width: 100%;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.4rem;
+        padding-right: 0.4rem;
+      }
     }
   }
 }
@@ -82,7 +90,6 @@
 
 .theme_switcher {
   font-size: 1.5rem;
-  margin-right: 0.8rem;
   cursor: pointer;
 }
 
