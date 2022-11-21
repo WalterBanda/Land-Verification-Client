@@ -1,8 +1,5 @@
-import {
-    TransactionStats,
-    AccountDetails,
-    RecentTransaction, PageBuilder
-} from "@components/index";
+import { PageBuilder } from "@components/index";
+import { TabPanelUnstyled, TabsUnstyled, TabUnstyled, TabsListUnstyled } from "@mui/base";
 import { home, components, sections } from "@styles/index";
 
 function AddLand() {
@@ -29,7 +26,17 @@ export default function Index() {
                     <AddTransaction />
                 </div>
             </div>
-            <RecentTransaction />
+            <div className={sections.root}>
+                <p className={sections.header}>Recent Items</p>
+                <TabsUnstyled defaultValue={0}>
+                    <TabsListUnstyled>
+                        <TabUnstyled>Recent Transaction</TabUnstyled>
+                        <TabUnstyled>Recent Purchased Land</TabUnstyled>
+                    </TabsListUnstyled>
+                    <TabPanelUnstyled value={0}>Transaction Page</TabPanelUnstyled>
+                    <TabPanelUnstyled value={1}>Land Page</TabPanelUnstyled>
+                </TabsUnstyled>
+            </div>
         </div >
     );
 }
