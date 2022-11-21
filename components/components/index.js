@@ -1,2 +1,2 @@
 export {AccountDetails,TransactionStats} from "./stats"
-export {RecentTransaction,PopularLand} from "./sections"
+export { RecentTransaction } from "./sections"
