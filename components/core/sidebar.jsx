@@ -37,7 +37,7 @@ export default function Sidebar({ children }) {
   );
 }
 
-function SidebarItem({ itemName, itemIcon, pageLink }) {
+export function SidebarItem({ itemName, itemIcon, pageLink }) {
   const router = useRouter();
 
   return (

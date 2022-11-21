@@ -1,8 +1,12 @@
 import Image from "next/image";
-import profile from "../../public/assets/img/profile.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, createRef } from "react";
 import { header } from "../../styles";
 import { useAuth } from "@core/hooks/auth";
+import { Button } from "..";
+import { useRouter } from "next/router";
+import { getAuth, signOut } from "firebase/auth";
+import { ClickAwayListener, PopperUnstyled } from "@mui/base";
+import { SidebarItem } from "./sidebar";
 
 export default function Header({ title, children }) {
   return (
@@ -70,10 +74,37 @@ export function Theme_Switcher() {
 
 function Profile() {
   const { user } = useAuth();
+  const router = useRouter();
+
+  const logout = () =>
+    signOut(getAuth())
+      .then(() => {
+        router.push("/");
+      })
+      .catch((error) => {
+        toast.error(`Unable to logout, ErrorCode: ${error?.code}`);
+      });
+
+  const [open, close] = useState(false);
+  const anchorEl = useRef(null);
 
   return (
-    <div className={header.profile}>
-      <img src={user?.photoURL} alt="" />
-    </div>
+    <ClickAwayListener onClickAway={() => close(false)}>
+      <div>
+        <div
+          className={header.profile}
+          ref={anchorEl}
+          onClick={() => close((prev) => !prev)}
+        >
+          {user?.photoURL && <img src={user.photoURL} alt="" />}
+        </div>
+        <PopperUnstyled open={open} anchorEl={anchorEl.current}>
+          <div className={header.detail}>
+            <p>{user?.displayName?.toLocaleUpperCase() ?? "UserName"}</p>
+            <Button onClick={() => logout()}>Logout</Button>
+          </div>
+        </PopperUnstyled>
+      </div>
+    </ClickAwayListener>
   );
 }
