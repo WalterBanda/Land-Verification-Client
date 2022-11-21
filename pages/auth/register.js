@@ -6,7 +6,7 @@ import AuthService from "@core/services/auth";
 
 export default function Register() {
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
     const router = useRouter();
 

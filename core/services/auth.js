@@ -27,7 +27,7 @@ class AuthService {
         createUserWithEmailAndPassword(getAuth(), email, password).then((credential) => {
 
             if (!credential.user.photoURL) {
-                updateProfile(credential.user, { photoURL: `https://avatars.dicebear.com/api/big-smile/${credential.user.uid}.svg`, displayName: email.split(/^([\w-\.])+@([\w-]+\.)+[\w-]{2,4}$/)[1] }).then(() => {
+                updateProfile(credential.user, { photoURL: `https://avatars.dicebear.com/api/big-smile/${credential.user.uid}.svg`, displayName: email.split(/^([\w-\.]+)@([\w-]+\.)+[\w-]{2,4}$/)[1] }).then(() => {
                     router.replace('/dashboard')
                     toast.success(`${credential.user?.displayName} Welcome to Land Verifier`)
                 })
@@ -43,7 +43,7 @@ class AuthService {
     login({ email, password, router }) {
         signInWithEmailAndPassword(getAuth(), email, password).then((credential) => {
             if (!credential.user.photoURL && !credential.user.displayName) {
-                updateProfile(credential.user, { photoURL: `https://avatars.dicebear.com/api/big-smile/${credential.user.uid}.svg`, displayName: email.split(/^([\w-\.])+@([\w-]+\.)+[\w-]{2,4}$/)[1] }).then(() => {
+                updateProfile(credential.user, { photoURL: `https://avatars.dicebear.com/api/big-smile/${credential.user.uid}.svg`, displayName: email.split(/^([\w-\.]+)@([\w-]+\.)+[\w-]{2,4}$/)[1] }).then(() => {
                     router.replace('/dashboard')
                     toast.success(`${credential.user?.displayName} Welcome to Land Verifier`)
                 })
