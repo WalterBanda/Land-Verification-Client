@@ -36,7 +36,7 @@ function EditProfileModal({ open, handleClose, user }) {
           <div className={settings.altProfileContainer}>
             <Button><i className="verifier-add" /></Button>
             <div>
-              {styles.map((style) => <AltPhoto style={style} seed={user?.uid} />)}
+              {styles.map((style) => <AltPhoto key={style} style={style} seed={user?.uid} />)}
             </div>
           </div>
         </main>
