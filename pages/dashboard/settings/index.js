@@ -205,6 +205,7 @@ function AppSettings() {
           {appColors.map((color) => (
             <div
               className={settings.themeSelector}
+              tabIndex={2}
               style={{
                 "--data-color": `${color}`,
               }}
