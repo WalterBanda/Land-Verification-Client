@@ -126,10 +126,25 @@ function ProfileSettings() {
   </div>
 }
 
+function AppSettings() {
+  return <div className={settings.appSettingsRoot}>
+    <p className={sections.header}> App Settings </p>
+    <div className={settings.appSettings}>
+      <p>Colors</p>
+      <div className={settings.theme1} />
+      <div className={settings.theme2} />
+      <div className={settings.theme3} />
+      <div className={settings.theme4} />
+    </div>
+  </div>
+}
+
 export default function Index() {
   return (
     <div className={home.root}>
       <ProfileSettings />
+      <p></p>
+      <AppSettings />
     </div>
   );
 }
