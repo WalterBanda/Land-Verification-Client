@@ -57,6 +57,7 @@
 }
 
 
+.verifier-cloud-upload:before { content: '\e800'; } /* '' */
 .verifier-password:before { content: '\e803'; } /* '' */
 .verifier-search:before { content: '\e804'; } /* '' */
 .verifier-settings:before { content: '\e805'; } /* '' */
