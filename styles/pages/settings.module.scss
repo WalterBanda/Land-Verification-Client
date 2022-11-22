@@ -23,7 +23,9 @@
   flex-flow: row nowrap;
   align-items: center;
   gap: 2rem;
+
   padding-top: 0.8rem;
+  margin-left: 0.5rem;
 
   .toogleEdit {
     position: absolute;
@@ -161,5 +163,36 @@
     & > div {
       max-width: 13rem;
     }
+  }
+}
+
+.appSettingsRoot {
+  margin-top: 2rem;
+}
+
+.appSettings {
+  color: var(--text-header);
+  margin-left: 0.5rem;
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.themeSelector {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  background-color: rgb(var(--data-color));
+  border-radius: 50%;
+  margin: 0.3rem;
+
+  &:hover {
+    box-shadow: 0px 0px 0.4rem rgba(var(--data-color), 0.5);
+  }
+
+  &:active {
+    transform: scale(0.94);
   }
 }
