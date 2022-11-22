@@ -114,7 +114,7 @@ function ProfileSettings() {
       <div className={settings.logo}>
         <img src={user?.photoURL} alt="Profile Url" />
       </div>
-      <div className={settings.profileDetails}>
+      <div className={settings.profileDetails} onClick={handleOpen}>
         <span>Profile Name</span>
         <p>{user?.displayName ?? 'UserName'}</p>
       </div>
