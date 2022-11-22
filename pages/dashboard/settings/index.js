@@ -3,7 +3,8 @@ import { useAuth } from "@core/hooks/auth";
 import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
 import { getAuth, updateProfile } from "firebase/auth";
-import { forwardRef, useState } from "react";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -29,13 +30,16 @@ function EditProfileModal({ open, handleClose, user }) {
 
   const { field: { onChange, value: img } } = useController({ name: 'img', control })
 
-  const submit = ({ img, name }) => {
-    updateProfile(user, { photoURL: img, displayName: name }).then(() => {
-      handleClose()
-      toast.success("Successfully Updated Profile")
-    }).catch((error) => {
-      toast.success(`Unable to Update Profile, error code ${error?.code}`)
-    })
+  let fileRef = useRef(null)
+
+  const handleFileInput = (event) => {
+    const url = URL.createObjectURL(event?.target?.files[0])
+    onChange(url)
+  }
+
+  const uploadFile = (fileName, blobUrl, metadata) => {
+    const storageRef = ref(getStorage(), `profile-images/${fileName}`)
+    return uploadBytes(storageRef, blobUrl, metadata)
   }
 
 
