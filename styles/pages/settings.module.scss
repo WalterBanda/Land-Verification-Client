@@ -172,11 +172,16 @@
 
 .appSettings {
   color: var(--text-header);
-  margin-left: 0.5rem;
+  margin-top: 0.8rem;
 
   p {
     font-size: 1rem;
     font-weight: 500;
+  }
+
+  main {
+    overflow: auto;
+    gap: 0.6rem;
   }
 }
 
