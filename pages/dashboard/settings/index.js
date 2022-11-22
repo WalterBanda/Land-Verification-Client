@@ -4,7 +4,7 @@ import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
 import { getAuth, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { forwardRef, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -198,12 +198,19 @@ const appColors = [
 function AppSettings() {
   const { control, handleSubmit } = useForm();
   const {
-    field: { value: theme, onChange },
+    field: { value: theme, onChange: changeTheme },
   } = useController({
     name: "theme",
     control,
     defaultValue: "0, 144, 255",
   });
+
+  useEffect(() => {
+    // document.styleSheets.item("").replace(``);
+    const r = document.querySelector(":root");
+    r.style.setProperty("--text-subheader", `rgba(${theme}, 1)`);
+    r.style.setProperty("--text-active", `rgba(${theme}, 1)`);
+  }, [theme]);
 
   return (
     <div className={settings.appSettingsRoot}>
@@ -218,6 +225,7 @@ function AppSettings() {
               style={{
                 "--data-color": `${color}`,
               }}
+              onClick={() => changeTheme(color)}
               data-selected={theme === color}
             />
           ))}
