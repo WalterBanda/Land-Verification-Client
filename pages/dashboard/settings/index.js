@@ -83,7 +83,7 @@ function EditProfileModal({ open, handleClose, user }) {
           <div className={settings.altProfileContainer}>
             <Button onClick={() => fileRef?.click()}>
               <input type='file' accept="image/jpeg,image/gif,image/svg+xml" onChange={handleFileInput} className={settings.file} ref={(ref) => { fileRef = ref }} />
-              <i className="verifier-add" />
+              <i className="verifier-cloud-upload" />
             </Button>
             <div>
               {styles.map((style) => <AltPhoto key={style} style={style} seed={user?.uid} onClick={() => onChange(`https://avatars.dicebear.com/api/${style}/${user?.uid}.svg`)} />)}
