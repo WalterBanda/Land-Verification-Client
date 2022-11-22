@@ -1,0 +1,220 @@
+.logo {
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--input-bg);
+  border-radius: 2rem;
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.profileRoot {
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 2rem;
+
+  padding-top: 0.8rem;
+  margin-left: 0.5rem;
+
+  .toogleEdit {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.1rem;
+
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.6rem;
+
+    i {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.profileDetails {
+  color: var(--text-header);
+
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  p {
+    all: unset;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .profileDetailsInput {
+    width: 100%;
+  }
+
+  button {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8rem;
+    width: 100%;
+  }
+}
+
+.file {
+  display: none;
+}
+
+.editProfileRoot {
+  background: var(--bg);
+
+  padding: 1.4rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.editProfile {
+  color: var(--text-header);
+
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  main {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
+}
+
+.altProfileContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+
+  & > div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1rem;
+
+    max-width: 16rem;
+    overflow: auto;
+    border-radius: 0.5rem;
+  }
+}
+
+.altProfile {
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--input-bg);
+  border-radius: 1rem;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .editProfile {
+    width: 100%;
+  }
+  .altProfileContainer {
+    width: 100%;
+
+    & > div {
+      max-width: 13rem;
+    }
+  }
+}
+
+.appSettingsRoot {
+  margin-top: 2rem;
+}
+
+.appSettings {
+  color: var(--text-header);
+  margin-top: 0.8rem;
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  main {
+    overflow: auto;
+    gap: 0.6rem;
+  }
+}
+
+.themeSelector {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  background-color: rgb(var(--data-color));
+  border-radius: 50%;
+  margin: 0.3rem;
+  transition: all ease-in 50ms;
+
+  --ring: 0px 0px 0px 2px rgba(var(--data-color));
+  --ring-border: 0.15rem solid var(--bg);
+
+  outline: none;
+  flex-shrink: 0;
+
+  &:hover {
+    box-shadow: 0px 0px 0.4rem rgba(var(--data-color), 0.5);
+  }
+
+  &:focus {
+    border: var(--ring-border);
+    box-shadow: var(--ring);
+  }
+
+  &[data-selected="true"] {
+    border: var(--ring-border);
+    box-shadow: var(--ring);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
