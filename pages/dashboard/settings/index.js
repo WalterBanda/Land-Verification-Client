@@ -1,4 +1,5 @@
 import { Button, Input, PageBuilder } from "@components/index";
+import { useApp } from "@core/hooks/app";
 import { useAuth } from "@core/hooks/auth";
 import { ModalUnstyled } from "@mui/base";
 import { home, sections, settings, components } from "@styles/index";
@@ -196,21 +197,7 @@ const appColors = [
 ];
 
 function AppSettings() {
-  const { control, handleSubmit } = useForm();
-  const {
-    field: { value: theme, onChange: changeTheme },
-  } = useController({
-    name: "theme",
-    control,
-    defaultValue: "0, 144, 255",
-  });
-
-  useEffect(() => {
-    // document.styleSheets.item("").replace(``);
-    const r = document.querySelector(":root");
-    r.style.setProperty("--text-subheader", `rgba(${theme}, 1)`);
-    r.style.setProperty("--text-active", `rgba(${theme}, 1)`);
-  }, [theme]);
+  const { theme, changeTheme } = useApp();
 
   return (
     <div className={settings.appSettingsRoot}>
