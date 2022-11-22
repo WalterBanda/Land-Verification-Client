@@ -196,11 +196,20 @@ const appColors = [
 ];
 
 function AppSettings() {
+  const { control, handleSubmit } = useForm();
+  const {
+    field: { value: theme, onChange },
+  } = useController({
+    name: "theme",
+    control,
+    defaultValue: "0, 144, 255",
+  });
+
   return (
     <div className={settings.appSettingsRoot}>
       <p className={sections.header}> App Settings </p>
       <div className={settings.appSettings}>
-        <p>Primary Color</p>
+        <p>Theme</p>
         <main>
           {appColors.map((color) => (
             <div
@@ -209,6 +218,7 @@ function AppSettings() {
               style={{
                 "--data-color": `${color}`,
               }}
+              data-selected={theme === color}
             />
           ))}
         </main>
