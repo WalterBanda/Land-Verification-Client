@@ -209,6 +209,7 @@ function AppSettings() {
             <div
               className={settings.themeSelector}
               tabIndex={2}
+              key={color}
               style={{
                 "--data-color": `${color}`,
               }}
