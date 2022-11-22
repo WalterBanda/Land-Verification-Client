@@ -1,10 +1,5 @@
-import {
-  doc,
-  getDoc,
-  getFirestore,
-  onSnapshot,
-  setDoc,
-} from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, getFirestore, onSnapshot, setDoc } from "firebase/firestore";
 import { useEffect, useState, createContext, useContext, useMemo } from "react";
 import { useAuth } from "./auth";
 
@@ -16,31 +11,34 @@ export function useApp() {
 
 export function AppProvider(props) {
   const { user, app } = useAuth();
-  const [theme, changeTheme] = useState("0, 144, 255");
+  const [theme, changeTheme] = useState();
 
   useEffect(() => {
-    if (app) {
-      onSnapshot(doc(getFirestore(app), "users", `${user?.uid}`), (doc) => {
-        const data = doc.data();
+    if (!!app) {
+      const unsub = onSnapshot(
+        doc(getFirestore(app), "users", `${user?.uid}`),
+        (doc) => {
+          const data = doc.data();
 
-        if (data?.theme && data?.theme !== theme) {
-          changeTheme(data?.theme);
+          if (data?.theme && data?.theme !== theme) {
+            changeTheme(data?.theme);
+          }
         }
-      });
+      );
     }
   });
 
   useEffect(() => {
-    const r = document.querySelector(":root");
-    r.style.setProperty("--text-subheader", `rgba(${theme}, 1)`);
-    r.style.setProperty("--text-active", `rgba(${theme}, 1)`);
-  }, [theme]);
+    if (!!theme) {
+      const r = document.querySelector(":root");
+      r.style.setProperty("--text-subheader", `rgba(${theme}, 1)`);
+      r.style.setProperty("--text-active", `rgba(${theme}, 1)`);
 
-  useMemo(() => {
-    if (app) {
-      setDoc(doc(getFirestore(app), "users", `${user?.uid}`), { theme }).catch(
-        (error) => console.log(error?.code)
-      );
+      if (!!app) {
+        setDoc(doc(getFirestore(app), "users", `${user?.uid}`), {
+          theme,
+        }).catch((error) => console.log(error?.code));
+      }
     }
   }, [theme]);
 
