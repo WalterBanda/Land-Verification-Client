@@ -9,6 +9,11 @@
   overflow: hidden;
 
   flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .profileRoot {
@@ -71,6 +76,10 @@
     padding: 0.8rem;
     width: 100%;
   }
+}
+
+.file {
+  display: none;
 }
 
 .editProfileRoot {
