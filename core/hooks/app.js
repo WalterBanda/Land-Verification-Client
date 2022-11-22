@@ -15,16 +15,25 @@ export function AppProvider(props) {
 
   useEffect(() => {
     if (!!app) {
-      const unsub = onSnapshot(
-        doc(getFirestore(app), "users", `${user?.uid}`),
-        (doc) => {
-          const data = doc.data();
+      if (!!user) {
+        const unsub = onSnapshot(
+          doc(getFirestore(app), "users", `${user?.uid}`),
+          (doc) => {
+            const data = doc.data();
 
-          if (data?.theme && data?.theme !== theme) {
-            changeTheme(data?.theme);
+            if (data?.theme && data?.theme !== theme) {
+              changeTheme(data?.theme);
+            }
           }
-        }
-      );
+        );
+
+        onAuthStateChanged(getAuth(app), (currentUser) => {
+          if (!currentUser) {
+            console.log("Unsubsribing");
+            return unsub();
+          }
+        });
+      }
     }
   });
 
