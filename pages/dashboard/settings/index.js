@@ -42,6 +42,31 @@ function EditProfileModal({ open, handleClose, user }) {
     return uploadBytes(storageRef, blobUrl, metadata)
   }
 
+  const submit = ({ img, name }) => {
+    if (img.search('blob:') == 0) {
+      uploadFile(`${user?.uid}-${fileRef.files[0].name}`, fileRef.files[0]).then((fileMeta) => {
+        toast.success("Profile photo upload successfull 🎉")
+        getDownloadURL(fileMeta.ref).then((imageURL) => {
+          updateProfile(user, { photoURL: imageURL, displayName: name }).then(() => {
+            handleClose()
+            toast.success("Successfully Updated Profile")
+          }).catch((error) => {
+            toast.error(`Unable to Update Profile, error code ${error?.code}`)
+          })
+        }).catch(() => { })
+      }).catch((error) => {
+        toast.error(`File upload failed, error code ${error?.code}`)
+        console.log(error);
+      })
+    } else {
+      updateProfile(user, { photoURL: img, displayName: name }).then(() => {
+        handleClose()
+        toast.success("Successfully Updated Profile")
+      }).catch((error) => {
+        toast.success(`Unable to Update Profile, error code ${error?.code}`)
+      })
+    }
+  }
 
   return <ModalUnstyled
     open={open}
