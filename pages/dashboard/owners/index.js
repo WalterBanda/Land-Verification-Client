@@ -8,6 +8,7 @@ import { home, sections } from "@styles/index";
 export default function Index() {
   return (
     <div className={home.root}>
+      <p className={sections.header}>Land Stats</p>
       <AccountDetails />
       <p className={sections.header}> Owners List </p>
       <LandTransaction />
