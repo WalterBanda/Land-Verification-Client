@@ -3,17 +3,6 @@ import { PageBuilder, RecentTransaction } from "@components/index";
 import { TabPanelUnstyled, TabsUnstyled, TabUnstyled, TabsListUnstyled } from "@mui/base";
 import { home, components, sections } from "@styles/index";
 
-function AddLand() {
-    return <div className={components.stats}>
-        <h2>Add Land</h2>
-    </div>
-}
-
-function AddTransaction() {
-    return <div className={components.stats}>
-        <h2>Add Transaction</h2>
-    </div>
-}
 
 
 export default function Index() {
@@ -22,10 +11,7 @@ export default function Index() {
         <div className={home.root}>
             <div className={sections.root}>
                 <p className={sections.header}>Manage</p>
-                <div className={sections.stats}>
-                    <AddLand />
-                    <AddTransaction />
-                </div>
+               
             </div>
             <div className={sections.root}>
                 <p className={sections.header}>Recent Items</p>
