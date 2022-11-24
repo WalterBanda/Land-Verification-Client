@@ -19,12 +19,9 @@ export function RecentTransaction({ title }) {
                 transaction.error
               ) : (
                 <>
-                  <h2>Owner: {transaction.owner}</h2>
-                  <h3>Buyer: {transaction.receiver}</h3>
-                  <div className={sections.desc}>
-                    <i className="verifier-stats" />
-                    <h1>{transaction.size}</h1>
-                  </div>
+                  <h2>Owner: {transaction?.owner}</h2>
+                  <h3>Buyer: {transaction?.receiver}</h3>
+                  <h3>Land Purchased: {transaction?.size}</h3>
                 </>
               )}
             </Card>
@@ -52,12 +49,11 @@ export function LandTransaction() {
                 transaction.error
               ) : (
                 <>
-                  <h2>Owner: {transaction.owner}</h2>
-                  <h3>Buyer: {transaction.receiver}</h3>
-                  <div className={sections.desc}>
-                    <i className="verifier-stats" />
-                    <h1>{transaction.size}</h1>
-                  </div>
+                  <h2>Owner: {transaction?.transaction?.owner}</h2>
+                  <h3>
+                    LandID: {transaction?.transaction?.landId?.substring(0, 5)}
+                  </h3>
+                  <h3>Remaining Land: {transaction?.transaction?.size}</h3>
                 </>
               )}
             </Card>
