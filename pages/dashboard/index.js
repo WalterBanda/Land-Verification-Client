@@ -1,5 +1,5 @@
 import { LandTransaction } from "@components/components/sections";
-import { PageBuilder, RecentTransaction } from "@components/index";
+import { AccountDetails, PageBuilder, RecentTransaction, TransactionStats } from "@components/index";
 import { TabPanelUnstyled, TabsUnstyled, TabUnstyled, TabsListUnstyled } from "@mui/base";
 import { home, components, sections } from "@styles/index";
 
@@ -10,8 +10,21 @@ export default function Index() {
     return (
         <div className={home.root}>
             <div className={sections.root}>
-                <p className={sections.header}>Manage</p>
-               
+                <p className={sections.header}>Stats</p>
+
+                <TabsUnstyled defaultValue={0}>
+                    <TabsListUnstyled>
+                        <TabUnstyled className={sections.tab}>Transactions stats</TabUnstyled>
+                        <TabUnstyled className={sections.tab}> Land stats</TabUnstyled>
+                    </TabsListUnstyled>
+                    <TabPanelUnstyled value={0}>
+                        <TransactionStats />
+                    </TabPanelUnstyled>
+                    <TabPanelUnstyled value={1}>
+                        <AccountDetails />
+                    </TabPanelUnstyled>
+                </TabsUnstyled>
+
             </div>
             <div className={sections.root}>
                 <p className={sections.header}>Recent Items</p>

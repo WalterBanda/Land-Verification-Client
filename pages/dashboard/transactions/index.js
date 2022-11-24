@@ -7,6 +7,7 @@ import { home, sections } from "@styles/index";
 export default function Index() {
   return (
     <div className={home.root}>
+      <p className={sections.header}>Transactions Stats</p>
       <TransactionStats />
       <p className={sections.header}> Transactions List </p>
       <RecentTransaction />
