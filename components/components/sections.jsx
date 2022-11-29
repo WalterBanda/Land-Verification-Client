@@ -49,11 +49,40 @@ export function LandTransaction() {
                 transaction.error
               ) : (
                 <>
-                  <h2>Owner: {transaction?.transaction?.owner}</h2>
+                  <h2>Owner: {transaction?.transaction?.receiver}</h2>
                   <h3>
                     LandID: {transaction?.transaction?.landId?.substring(0, 5)}
                   </h3>
-                  <h3>Remaining Land: {transaction?.transaction?.size}</h3>
+                  <h3>Purchased Land: {transaction?.transaction?.size}</h3>
+                </>
+              )}
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export function LandOwners() {
+  const { land } = useData();
+
+  return (
+    <div>
+      <p></p>
+      <div className={sections.transactions}>
+        {land.map((landId) => {
+          return (
+            <Card
+              key={land.indexOf(landId)}
+              className={sections.transaction_root}
+            >
+              {landId.error ? (
+                landId.error
+              ) : (
+                <>
+                  <h2>Owner: {landId?.owner}</h2>
+                  <h3>Remaining Land: {landId?.size}</h3>
                 </>
               )}
             </Card>

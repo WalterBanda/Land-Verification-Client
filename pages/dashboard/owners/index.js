@@ -1,8 +1,5 @@
-import { LandTransaction } from "@components/components/sections";
-import {
-  AccountDetails,
-  RecentTransaction, PageBuilder
-} from "@components/index";
+import { LandOwners } from "@components/components/sections";
+import { AccountDetails, PageBuilder } from "@components/index";
 import { home, sections } from "@styles/index";
 
 export default function Index() {
@@ -11,7 +8,7 @@ export default function Index() {
       <p className={sections.header}>Land Stats</p>
       <AccountDetails />
       <p className={sections.header}> Owners List </p>
-      <LandTransaction />
+      <LandOwners />
     </div>
   );
 }
