@@ -81,8 +81,8 @@ export function LandOwners() {
                 landId.error
               ) : (
                 <>
-                  <h2>Owner: {landId?.owner}</h2>
-                  <h3>Remaining Land: {landId?.size}</h3>
+                  <h2>Owner: {landId?.address}</h2>
+                  <h3>Remaining Land: {landId?.balance}</h3>
                 </>
               )}
             </Card>
